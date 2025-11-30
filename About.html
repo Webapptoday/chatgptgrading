@@ -1,110 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> University Website Design </title>
+    <title>About Us | YOU MATTER - Mental Health Support</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<style>
-    .about-dropdowns {
-        width: 80%;
-        margin: 60px auto;
-        padding: 40px 0;
-    }
-    
-    .dropdowns-container h2 {
-        text-align: center;
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #333;
-    }
-    
-    .dropdown-item {
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #fff;
-    }
-    
-    .dropdown-header {
-        width: 100%;
-        padding: 20px;
-        background: #f8f9fa;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        transition: background 0.3s ease;
-    }
-    
-    .dropdown-header:hover {
-        background: #e9ecef;
-    }
-    
-    .dropdown-header i {
-        transition: transform 0.3s ease;
-    }
-    
-    .dropdown-content {
-        display: none;
-        padding: 20px;
-        background: #fff;
-        border-top: 1px solid #ddd;
-        max-height: 500px;
-        overflow-y: auto;
-    }
-    
-    .dropdown-content p {
-        margin: 0;
-        color: #555;
-    }
-    
-    .dropdown-content a {
-        color: #f44336;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
-    
-    .dropdown-content a:hover {
-        color: #d32f2f;
-        text-decoration: underline;
-    }
-    
-    @media (max-width: 700px) {
-        .about-dropdowns {
-            width: 90%;
-        }
-        
-        .dropdowns-container h2 {
-            font-size: 24px;
-        }
-        
-        .dropdown-header {
-            padding: 15px;
-            font-size: 14px;
-        }
-    }
-</style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-    <section class="sub-header">
+    <header class="sub-header">
         <nav>
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <a href="index.html"><img src="images/logo.png" alt="YOU MATTER Logo"></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li class="has-dropdown">
-                        <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+                        <a href="About.html" aria-current="page">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
                         <ul class="dropdown">
                             <li><a href="about-youmatter.html">About You Matter</a></li>
                             <li><a href="about-who-we-are.html">Who We Are</a></li>
@@ -126,39 +41,108 @@
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-        <h1>ABOUT US</h1>
+        <h1>About Us</h1>
+    </header> 
 
+    <!-- Main About Content -->
+    <main>
+        <section class="about-us">
+            <div class="row">
+                <article class="about-col">
+                    <h2>Our Mission & Vision</h2>
+                    <p>At YOU MATTER, we believe that mental health is a fundamental aspect of overall well-being. Our mission is to make mental health resources, education, and support accessible to everyone, regardless of background or circumstance. We started this journey to break down the stigma surrounding mental health and provide evidence-based information and compassionate support to those in need.</p>
+                    <p>We're committed to creating a safe, inclusive space where individuals can learn about mental health conditions, discover coping strategies, and connect with professional resources. Whether you're struggling with anxiety, depression, stress, or any other mental health concern, YOU MATTER is here to support you on your path to wellness.</p>
+                    <a href="about-youmatter.html" class="hero-btn red-btn">Explore More</a>
+                </article>
+                <article class="about-col">
+                    <img src="images/about.jpg" alt="Team members working together to support mental health awareness">
+                </article>
+            </div>     
+        </section>
 
-</section> 
+        <!-- Key Information Section -->
+        <section class="about-dropdowns">
+            <div class="dropdowns-container">
+                <h2>Our Approach</h2>
+                
+                <div class="dropdown-item">
+                    <button class="dropdown-header" onclick="toggleDropdown(this)">
+                        <span>Evidence-Based Information</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <p>All content on YOU MATTER is carefully researched and based on credible sources, including peer-reviewed studies and resources from organizations like the National Institute of Mental Health (NIMH), American Psychological Association (APA), and Mental Health America. We ensure accuracy and reliability in all our educational materials.</p>
+                    </div>
+                </div>
 
-    <!-- ----about us content---- -->
- <section class="about-us">
-    <div class="row">
-        <div class="about-col">
-            <h1>Our Mission & Vision</h1>
-            <p>SAMPLE ABOUT US TEXT BOX 1</p>
-            <a class="hero-btn red-btn">Explore Now</a>
-        </div>
-        <div class="about-col">
-            <img src="images/about.jpg" alt="">
-        </div>
-    </div>     
-</section>
+                <div class="dropdown-item">
+                    <button class="dropdown-header" onclick="toggleDropdown(this)">
+                        <span>Accessible Support</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <p>We believe mental health support should be accessible to everyone. That's why we provide free resources, information, and guidance. Our platform is designed to be user-friendly and available 24/7, so you can access support whenever you need it.</p>
+                    </div>
+                </div>
 
-    <section class="footer">
+                <div class="dropdown-item">
+                    <button class="dropdown-header" onclick="toggleDropdown(this)">
+                        <span>Community & Connection</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <p>Mental health can feel isolating, but you're not alone. Through our testimonials, blog, and resources, we foster a sense of community where individuals can share experiences, learn from others, and find hope and encouragement on their mental health journey.</p>
+                    </div>
+                </div>
+
+                <div class="dropdown-item">
+                    <button class="dropdown-header" onclick="toggleDropdown(this)">
+                        <span>Professional Resources</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <p>While YOU MATTER provides valuable information and support, we also recognize the importance of professional mental health care. We connect you with resources to find therapists, counselors, and other mental health professionals in your area who can provide personalized treatment and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
         <h4>About Us</h4>
         <p>Built with purpose.</p>
         <div class="icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-facebook-f" aria-label="Facebook"></i>
+            <i class="fab fa-twitter" aria-label="Twitter"></i>
+            <i class="fab fa-instagram" aria-label="Instagram"></i>
+            <i class="fab fa-linkedin-in" aria-label="LinkedIn"></i>
         </div>
         <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
-    </section>
-<script src="menu.js"></script>
+    </footer>
 
-
-    
+    <script src="menu.js"></script>
+    <script>
+        function toggleDropdown(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-content').forEach(item => {
+                if (item !== content) {
+                    item.style.display = 'none';
+                    item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current dropdown
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
 </body>
 </html>
