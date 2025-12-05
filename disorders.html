@@ -27,13 +27,6 @@
       --mha-shadow:0 10px 28px rgba(15,40,80,.10);
       --mha-maxw:1180px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --mha-bg:#0b1326; --mha-card:#0f1b33; --mha-soft:#192746;
-        --mha-cream:#1a2440; --mha-navy:#d8e6ff; --mha-ink:#e6edf6; --mha-muted:#9eb0c9;
-      }
-      .footer{background:#0f1b33;}
-    }
 
     *{box-sizing:border-box}
     body{background:var(--mha-bg);-webkit-font-smoothing:antialiased;margin:0}
@@ -46,9 +39,6 @@
       display:grid;gap:22px;
       grid-template-columns:repeat(4,minmax(0,1fr));
     }
-    @media (max-width:1100px){ .mha-grid{grid-template-columns:repeat(3,1fr)} }
-    @media (max-width:820px){ .mha-grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:540px){ .mha-grid{grid-template-columns:1fr} }
 
     .mha-card{
       border-radius:26px;background:var(--mha-card);box-shadow:var(--mha-shadow);overflow:hidden;border:1px solid rgba(13,43,87,.06)
@@ -156,6 +146,7 @@
               <li><a href="disorders.html" aria-current="page">Disorders</a></li>
               <li><a href="appointment.html">Appointment</a></li>
               <li><a href="check-in.html">Check-in</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
             </ul>
           </li>
           <li><a href="blog.html">BLOG</a></li>
