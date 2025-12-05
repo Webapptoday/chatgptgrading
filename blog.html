@@ -9,82 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
-<body>
-  <!-- NAV / SUB-HEADER -->
-  <header class="sub-header">
-    <nav>
-      <a href="index.html"><img src="images/logo.png" alt="YOU MATTER Logo"></a>
-      <div class="nav-links" id="navLinks">
-        <i class="fa fa-times" onclick="hideMenu()"></i>
-        <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li class="has-dropdown">
-            <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
-            <ul class="dropdown">
-              <li><a href="about-youmatter.html">About You Matter</a></li>
-              <li><a href="about-who-we-are.html">Who We Are</a></li>
-              <li><a href="about-why-we-started.html">Why We Started</a></li>
-              <li><a href="about-what-we-do.html">What We Do</a></li>
-            </ul>
-          </li>
-          <li class="has-dropdown">
-            <a href="course.html">COURSE <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
-            <ul class="dropdown">
-              <li><a href="disorders.html">Disorders</a></li>
-              <li><a href="appointment.html">Appointment</a></li>
-              <li><a href="check-in.html">Check-in</a></li>
-            </ul>
-          </li>
-          <li><a href="blog.html" aria-current="page">BLOG</a></li>
-          <li><a href="testimonials.html">TESTIMONIALS</a></li>
-        </ul>
-      </div>
-      <i class="fa fa-bars" onclick="showMenu()"></i>
-    </nav>
-    <h1>Blog Posts</h1>
-  </header>
-
-  <!-- MAIN BLOG CONTENT -->
-  <main class="blog-wrapper">
-    <section class="blog-intro">
-      <h2>Mental Health Blog Posts & Resources</h2>
-      <p>Click any post below to read the full article and gain insights into managing your mental health. You can always return to all posts using the back button.</p>
-    </section>
-
-    <!-- List View -->
-    <section id="blog-list" role="main" aria-label="Blog posts list"></section>
-
-    <!-- Detail View -->
-    <section id="blog-detail">
-      <article class="detail-card">
-        <h2 class="detail-title"></h2>
-        <div class="detail-meta"></div>
-        <article class="detail-body"></article>
-        <div class="btn-row">
-          <button class="btn-back" id="btn-back">
-            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-            Back to all posts
-          </button>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <h4>About Us</h4>
-    <p>Built with purpose.</p>
-    <div class="icons">
-      <i class="fab fa-facebook-f" aria-label="Facebook"></i>
-      <i class="fab fa-twitter" aria-label="Twitter"></i>
-      <i class="fab fa-instagram" aria-label="Instagram"></i>
-      <i class="fab fa-linkedin-in" aria-label="LinkedIn"></i>
-    </div>
-    <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
-  </footer>
-
-  <!-- BLOG LOGIC -->
+  <style>
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #f5f6fa;
@@ -281,16 +206,16 @@
   </style>
 </head>
 <body>
-  <!-- NAV / SUB-HEADER (unchanged) -->
-  <section class="sub-header">
+  <!-- NAV / SUB-HEADER -->
+  <header class="sub-header">
     <nav>
-      <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+      <a href="index.html"><img src="images/logo.png" alt="YOU MATTER Logo"></a>
       <div class="nav-links" id="navLinks">
         <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
           <li><a href="index.html">HOME</a></li>
           <li class="has-dropdown">
-            <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <a href="about-youmatter.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
             <ul class="dropdown">
               <li><a href="about-youmatter.html">About You Matter</a></li>
               <li><a href="about-who-we-are.html">Who We Are</a></li>
@@ -299,7 +224,7 @@
             </ul>
           </li>
           <li class="has-dropdown">
-            <a href="course.html">COURSE <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <a href="course.html">SERVICES <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
             <ul class="dropdown">
               <li><a href="disorders.html">Disorders</a></li>
               <li><a href="appointment.html">Appointment</a></li>
@@ -313,16 +238,14 @@
       <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
     <h1>Blog Posts</h1>
-  </section>
+  </header>
 
   <!-- MAIN BLOG CONTENT -->
-  <section class="blog-wrapper">
-    <div class="blog-intro">
-      <h2>These are our mental health blog posts</h2>
-      <p>Click any post below to read the full article. You can always come back here with the “Back to all posts” button.</p>
-    </div>
-
-    <!-- List View -->
+  <main class="blog-wrapper">
+    <section class="blog-intro">
+      <h2>Mental Health Blog Posts & Resources</h2>
+      <p>Click any post below to read the full article and gain insights into managing your mental health. You can always return to all posts using the back button.</p>
+    </section>
     <section id="blog-list"></section>
 
     <!-- Detail View -->
@@ -339,20 +262,20 @@
         </div>
       </div>
     </section>
-  </section>
+  </main>
 
   <!-- FOOTER -->
-    <section class="footer">
-        <h4>About Us</h4>
-        <p>Built with purpose.</p>
-        <div class="icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-        </div>
-        <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
-    </section>  <!-- NAV TOGGLE SCRIPT -->
+  <footer class="footer">
+    <h4>About Us</h4>
+    <p>Built with purpose.</p>
+    <div class="icons">
+      <i class="fab fa-facebook-f" aria-label="Facebook"></i>
+      <i class="fab fa-twitter" aria-label="Twitter"></i>
+      <i class="fab fa-instagram" aria-label="Instagram"></i>
+      <i class="fab fa-linkedin-in" aria-label="LinkedIn"></i>
+    </div>
+    <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+  </footer>  <!-- NAV TOGGLE SCRIPT -->
   <script>
     var navLinks = document.getElementById("navLinks");
     function showMenu() { navLinks.style.right = "0"; }

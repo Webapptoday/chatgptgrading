@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,14 +121,22 @@
         <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
           <li><a href="index.html">HOME</a></li>
-          <li><a href="About.html">ABOUT US</a></li>
           <li class="has-dropdown">
-            <a href="course.html">COURSE
+            <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <ul class="dropdown">
+              <li><a href="about-youmatter.html">About You Matter</a></li>
+              <li><a href="about-who-we-are.html">Who We Are</a></li>
+              <li><a href="about-why-we-started.html">Why We Started</a></li>
+              <li><a href="about-what-we-do.html">What We Do</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="course.html">SERVICES
               <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i>
             </a>
             <ul class="dropdown">
               <li><a href="disorders.html">Disorders</a></li>
-              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="appointment.html" aria-current="page">Appointment</a></li>
               <li><a href="check-in.html">Check-in</a></li>
             </ul>
           </li>
@@ -145,8 +153,7 @@
     <div class="appointment-container">
       <h2>Book a Zoom Appointment</h2>
       <p class="subtext">
-        Schedule a one-on-one Zoom counseling session with
-        <strong>Jake Mason</strong>. Choose any time between
+        Schedule a one-on-one Zoom counseling session with one of our counselors. Choose any time between
         <strong>8:00 am</strong> and <strong>6:00 pm</strong>.
       </p>
 
@@ -155,6 +162,16 @@
         <div class="form-row">
           <label for="student-name">Your Name</label>
           <input type="text" id="student-name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="counselor-name">Choose a Counselor</label>
+          <select id="counselor-name" required style="padding:10px;border-radius:6px;border:1px solid #ccc;">
+            <option value="">Select a Counselor</option>
+            <option value="Will Youta">Will Youta</option>
+            <option value="Chuck Lena">Chuck Lena</option>
+            <option value="Tosia Iga">Tosia Iga</option>
+          </select>
         </div>
 
         <div class="form-row">
@@ -224,6 +241,7 @@
       e.preventDefault();
 
       const name = document.getElementById('student-name').value.trim();
+      const counselorName = document.getElementById('counselor-name').value.trim();
       const dateVal = document.getElementById('date').value;
       const hour = document.getElementById('hour').value;
       const minute = document.getElementById('minute').value;
@@ -232,7 +250,7 @@
 
       errorMsg.style.display = 'none';
 
-      if(!name || !dateVal || !hour || !minute){
+      if(!name || !counselorName || !dateVal || !hour || !minute){
         errorMsg.textContent = 'Please fill out all fields.';
         errorMsg.style.display = 'inline';
         return;
@@ -276,10 +294,11 @@
       });
 
       // Build Google Calendar link
-      const text = encodeURIComponent('Counseling Session with Jake Mason');
+      const text = encodeURIComponent(`Counseling Session with ${counselorName}`);
+      const randomZoomId = Math.random().toString(36).substring(2, 11).toUpperCase();
       const details = encodeURIComponent(
-        'Zoom link: https://zoom.us/j/your-meeting-id\n' +
-        'Counselor: Jake Mason\n' +
+        `Zoom link: https://zoom.us/j/${randomZoomId}\n` +
+        `Counselor: ${counselorName}\n` +
         'Student: ' + name + '\n\n' +
         'Please join a few minutes early to test your audio and video.'
       );
@@ -289,21 +308,31 @@
         `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}` +
         `&details=${details}&dates=${dates}&location=${location}`;
 
+      // Get counselor initial
+      const counselorInitial = counselorName.charAt(0).toUpperCase();
+
+      // Define counselor bios
+      const counselorBios = {
+        'Will Youta': 'Will is passionate about helping students navigate academic pressures and build confidence. With expertise in anxiety management and personal development, Will creates supportive sessions tailored to each student\'s unique needs and goals.',
+        'Chuck Lena': 'Chuck brings years of experience in relationship dynamics and communication skills. Specializing in conflict resolution and self-advocacy, Chuck helps students develop stronger interpersonal connections and assertiveness.',
+        'Tosia Iga': 'Tosia focuses on holistic wellness and mental health resilience. With a background in mindfulness practices and emotional regulation, Tosia guides students toward sustainable mental health strategies and inner peace.'
+      };
+
+      const counselorBio = counselorBios[counselorName] || 'Your wellness counselor is dedicated to supporting your mental health journey.';
+
       // Show confirmation + counselor info
       confirmation.innerHTML = `
         <h3>Appointment Booked!</h3>
-        <p>${name}, your Zoom counseling session is scheduled for
+        <p>${name}, your Zoom counseling session with <strong>${counselorName}</strong> is scheduled for
           <strong>${friendlyDate}</strong> at <strong>${friendlyTime}</strong>.
         </p>
 
         <div class="counselor-card">
-          <div class="counselor-avatar"><span>J</span></div>
+          <div class="counselor-avatar"><span>${counselorInitial}</span></div>
           <div class="counselor-info">
-            <h3>Jake Mason</h3>
+            <h3>${counselorName}</h3>
             <p><strong>Student Wellness Counselor</strong></p>
-            <p>Jake specializes in helping students manage stress, balance school and life,
-               and build healthy coping skills. He creates a safe, judgment-free space
-               to talk through anything that’s on your mind.</p>
+            <p>${counselorBio}</p>
             <p><strong>Session Type:</strong> 1:1 Zoom video call<br>
                <strong>Duration:</strong> 30 minutes</p>
           </div>

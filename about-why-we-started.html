@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        /* --- SECTION WRAPPER --- */
+    /* Final Cosing for wrapper */
         .why-we-started-wrapper {
             width: 100%;
             background: #f7fafc;
@@ -21,7 +21,7 @@
             margin: 0 auto;
         }
 
-        /* --- GRID LAYOUT: same layout as other pages --- */
+    /*Grid like columns*/
         .why-we-started {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -29,13 +29,8 @@
             align-items: flex-start;
         }
 
-        @media (max-width: 900px) {
-            .why-we-started {
-                grid-template-columns: 1fr;
-            }
-        }
 
-        /* --- TEXT COLUMN --- */
+    /* Text */
         .why-we-started-text h2 {
             font-size: 2rem;
             font-weight: 700;
@@ -56,7 +51,7 @@
             margin-bottom: 14px;
         }
 
-        /* --- PLACEHOLDER IMAGE ROW (you can replace src with real images) --- */
+    /* Images */
         .why-we-started-photos {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -81,27 +76,16 @@
         .why-we-started-photo-caption {
             display: none; /* Optional: show captions if you want later */
         }
+    
 
-        @media (max-width: 600px) {
-            .why-we-started-photo img {
-                height: 140px;
-            }
-        }
-
-        /* --- STATS COLUMN --- */
+    /* Stats */
         .why-we-started-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
 
-        @media (max-width: 700px) {
-            .why-we-started-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* --- STAT CARDS --- */
+    /* Stat can chagne formatting if looks weird */
         .why-stat-card {
             background: #ffffff;
             padding: 20px;
@@ -129,7 +113,7 @@
             line-height: 1.4;
         }
 
-        /* --- FADE IN EFFECT --- */
+    /* Leave on scrolling */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -145,9 +129,9 @@
 <body>
     <section class="sub-header">
         <nav>
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <a href="index.html"><img src="images/logo.png" alt="YouMatter logo"></a>
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <i class="fa fa-times" data-action="hide-menu" role="button" aria-label="Close menu"></i>
                 <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li class="has-dropdown">
@@ -160,7 +144,7 @@
                         </ul>
                     </li>
                     <li class="has-dropdown">
-                        <a href="course.html">COURSE <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+                        <a href="course.html">SERVICES <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
                         <ul class="dropdown">
                             <li><a href="disorders.html">Disorders</a></li>
                             <li><a href="appointment.html">Appointment</a></li>
@@ -171,22 +155,22 @@
                     <li><a href="testimonials.html">TESTIMONIALS</a></li>
                 </ul>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <i class="fa fa-bars" data-action="show-menu" role="button" aria-label="Open menu"></i>
         </nav>
         <h1>Why We Started</h1>
     </section>
 
-    <!-- Content Section -->
+    <!-- Content  -->
     <section class="why-we-started-wrapper">
         <div class="why-we-started container">
 
-            <!-- Left Column: Story + placeholder images -->
+            <!-- Story -->
             <div class="why-we-started-text fade-in">
                 <h2>Why We Started YouMatter</h2>
                 <p class="why-subtagline">Because mental health shouldn't be confusing, lonely, or hidden.</p>
 
-                <!-- PLACEHOLDER IMAGES ROW -->
-                <!-- Replace the src values below with your real images (e.g., founders, students, workshops) -->
+                
+                <!-- Need images by Friday -->
                 <div class="why-we-started-photos">
                     <figure class="why-we-started-photo">
                         <img src="images/whywepic1.png" alt="Mental health awareness photo">
@@ -200,8 +184,8 @@
 
                 <p>
                     We created YouMatter after seeing how many teens and young adults silently struggle with
-                    anxiety, depression, stress, identity questions, and emotional burnout. Mental-health
-                    resources often feel overwhelming, too clinical, or scattered across dozens of websites.
+                    anxiety, depression, stress, identity questions, and emotional burnout. Resources for
+                     Mental health often feel overwhelming, too clinical, or scattered across dozens of websites.
                 </p>
 
                 <p>
@@ -216,7 +200,7 @@
                 </p>
             </div>
 
-            <!-- Right Column: Stats (updated for mental-health facts + 25 articles) -->
+            <!-- Stats need to be updated by friday to current total -->
             <div class="why-we-started-stats fade-in">
                 <div class="why-stat-card">
                     <h3>1 in 5</h3>
@@ -256,7 +240,7 @@
 
     <script src="menu.js"></script>
     <script>
-        // Fade-in on scroll
+        // Stopped show during scrol
         const fadeItems = document.querySelectorAll('.fade-in');
 
         const observer = new IntersectionObserver((entries) => {
@@ -268,6 +252,19 @@
         }, { threshold: 0.2 });
 
         fadeItems.forEach(item => observer.observe(item));
+
+        // Cal if menu item is not there
+        document.querySelectorAll('[data-action="show-menu"]').forEach(el => {
+            el.addEventListener('click', () => {
+                if (typeof showMenu === 'function') { showMenu(); }
+            });
+        });
+
+        document.querySelectorAll('[data-action="hide-menu"]').forEach(el => {
+            el.addEventListener('click', () => {
+                if (typeof hideMenu === 'function') { hideMenu(); }
+            });
+        });
     </script>
 </body>
 </html>

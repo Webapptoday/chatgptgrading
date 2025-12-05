@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        /* Page Container */
         .content-section {
             width: 100%;
             background: #f7fafc;
@@ -20,13 +19,10 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-
-        /* Section Heading */
         .section-heading {
             text-align: center;
             margin-bottom: 50px;
         }
-
         .section-heading h2 {
             font-size: 2.2rem;
             color: #0d2b57;
@@ -42,7 +38,7 @@
             line-height: 1.7;
         }
 
-        /* Three Column Section */
+        /* Col section for the code complete by Rishi */
         .three-col-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -99,7 +95,7 @@
             background: #e67e2f;
         }
 
-        /* Disorders Section */
+        /* Disorders*/
         .disorders-section {
             background: #ffffff;
             padding: 60px 20px;
@@ -126,7 +122,7 @@
             margin: 0 auto;
         }
 
-        /* Disorders Grid */
+        
         .disorders-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -180,7 +176,76 @@
             color: #e67e2f;
         }
 
-        /* CTA Section */
+        /* Disorder Detail Sections */
+        .disorder-detail-section {
+            background: #ffffff;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #ff8c3a;
+            box-shadow: 0 2px 10px rgba(13, 43, 87, 0.05);
+        }
+
+        .disorder-detail-section h3 {
+            font-size: 1.8rem;
+            color: #0d2b57;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        .disorder-detail-section h4 {
+            font-size: 1.2rem;
+            color: #1a3a6e;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .disorder-detail-section p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .source-link {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 20px !important;
+        }
+
+        .source-link a {
+            color: #ff8c3a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .source-link a:hover {
+            color: #e67e2f;
+            text-decoration: underline;
+        }
+
+        .disorder-detail-section ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        .disorder-detail-section ul li {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .disorder-detail-section hr {
+            border: none;
+            border-top: 2px solid #e4edf9;
+            margin: 35px 0;
+        }
+
+        
         .cta-banner {
             background: linear-gradient(135deg, #0d2b57 0%, #1a3a6e 100%);
             padding: 50px 30px;
@@ -219,24 +284,11 @@
             transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
-            .section-heading h2,
-            .disorders-heading h2 {
-                font-size: 1.8rem;
-            }
-
-            .three-col-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .disorders-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Heade -->
     <section class="sub-header">
         <nav>
             <a href="index.html"><img src="images/logo.png" alt="YOU MATTER Logo"></a>
@@ -254,7 +306,7 @@
                         </ul>
                     </li>
                     <li class="has-dropdown">
-                        <a href="course.html">COURSE <i class="fa-solid fa-angle-down"></i></a>
+                        <a href="course.html">SERVICES <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="disorders.html">Disorders</a></li>
                             <li><a href="appointment.html">Appointment</a></li>
@@ -270,17 +322,15 @@
         <h1>Understand & Support</h1>
     </section>
 
-    <!-- Main Content -->
+
     <section class="content-section">
         <div class="content-container">
-            <!-- Intro Section with Three Columns -->
             <div class="section-heading">
                 <h2>Get the Support You Need</h2>
                 <p>Explore resources to understand your mental health, take a check-in assessment, or connect with a professional counselor.</p>
             </div>
 
             <div class="three-col-grid">
-                <!-- Column 1: Understand -->
                 <div class="three-col-card">
                     <div class="three-col-icon">
                         <i class="fas fa-brain"></i>
@@ -290,7 +340,6 @@
                     <a href="disorders.html" class="three-col-btn">Explore Disorders</a>
                 </div>
 
-                <!-- Column 2: Check-In -->
                 <div class="three-col-card">
                     <div class="three-col-icon">
                         <i class="fas fa-heart-pulse"></i>
@@ -300,7 +349,6 @@
                     <a href="check-in.html" class="three-col-btn">Start Check-in</a>
                 </div>
 
-                <!-- Column 3: Professional Support -->
                 <div class="three-col-card">
                     <div class="three-col-icon">
                         <i class="fas fa-handshake"></i>
@@ -311,111 +359,316 @@
                 </div>
             </div>
 
-            <!-- Disorders Section -->
+            <!-- Disorders  -->
             <div class="disorders-section">
                 <div class="disorders-heading">
                     <h2>Common Mental Health Conditions</h2>
                     <p>Understanding these conditions is an important first step. Each card provides an overview and links to more detailed information.</p>
                 </div>
 
-                <div class="disorders-grid">
-                    <!-- Anxiety Disorders -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </div>
-                        <h4>Anxiety Disorders</h4>
-                        <p>When worry becomes constant and affects daily life. Includes generalized anxiety, social anxiety, and panic disorder.</p>
-                        <a href="disorders.html#anxiety">Learn More →</a>
-                    </div>
-
-                    <!-- Depression -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-cloud-rain"></i>
-                        </div>
-                        <h4>Depression</h4>
-                        <p>More than sadness — it affects energy, sleep, appetite, and motivation. Major depression and persistent depressive disorder.</p>
-                        <a href="disorders.html#depression">Learn More →</a>
-                    </div>
-
-                    <!-- ADHD -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4>ADHD</h4>
-                        <p>Attention challenges, impulse control, and activity levels that affect work, school, and relationships.</p>
-                        <a href="disorders.html#adhd">Learn More →</a>
-                    </div>
-
-                    <!-- OCD -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-infinity"></i>
-                        </div>
-                        <h4>OCD</h4>
-                        <p>Obsessive-compulsive disorder involves unwanted thoughts and repetitive behaviors that interfere with daily life.</p>
-                        <a href="disorders.html#ocd">Learn More →</a>
-                    </div>
-
-                    <!-- PTSD -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-shield-halved"></i>
-                        </div>
-                        <h4>PTSD</h4>
-                        <p>Post-traumatic stress disorder develops after experiencing or witnessing traumatic events.</p>
-                        <a href="disorders.html#ptsd">Learn More →</a>
-                    </div>
-
-                    <!-- Eating Disorders -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h4>Eating Disorders</h4>
-                        <p>Includes anorexia, bulimia, and binge eating disorder. Serious conditions requiring professional support.</p>
-                        <a href="disorders.html#eating">Learn More →</a>
-                    </div>
-
-                    <!-- Bipolar Disorder -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <h4>Bipolar Disorder</h4>
-                        <p>Characterized by extreme mood swings — from depressive lows to manic highs. Manageable with proper support.</p>
-                        <a href="disorders.html#bipolar">Learn More →</a>
-                    </div>
-
-                    <!-- Substance Use -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-prescription-bottle"></i>
-                        </div>
-                        <h4>Substance Use Disorder</h4>
-                        <p>Addiction and substance abuse affect mental health and physical wellbeing. Recovery is possible with support.</p>
-                        <a href="disorders.html#substance">Learn More →</a>
-                    </div>
-
-                    <!-- Co-occurring Disorders -->
-                    <div class="disorder-card">
-                        <div class="disorder-icon">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h4>Co-occurring Disorders</h4>
-                        <p>Multiple mental health conditions that often occur together. Integrated treatment addresses all conditions.</p>
-                        <a href="disorders.html#cooccurring">Learn More →</a>
-                    </div>
+                <!-- Anxiety Disorders Section -->
+                <div id="anxiety" class="disorder-detail-section">
+                    <h3>Anxiety Disorders</h3>
+                    <p><strong>Source:</strong> <a href="https://my.clevelandclinic.org/health/diseases/9536-anxiety-disorders" target="_blank">https://my.clevelandclinic.org/health/diseases/9536-anxiety-disorders</a></p>
+                    
+                    <p>Anxiety Disorder is a mental health condition that causes constant fear or worry about stressful situations.</p>
+                    
+                    <h4>Some symptoms of anxiety include:</h4>
+                    <ul>
+                        <li>Pounding heart</li>
+                        <li>Dry mouth</li>
+                        <li>Nausea</li>
+                        <li>Shortness of breath</li>
+                        <li>Sweating</li>
+                        <li>Regular numbness in the hands or feet</li>
+                        <li>Insomnia or Trouble falling asleep</li>
+                        <li>Muscle tension</li>
+                        <li>Trouble concentrating</li>
+                        <li>Easily irritable</li>
+                        <li>Constant sense of panic and uneasiness</li>
+                    </ul>
+                    
+                    <p>Moreover, anxiety can be beneficial, helping people notice dangerous situations quicker than others.</p>
+                    
+                    <p>Some types of anxiety disorders include… GAD, Generalized anxiety disorder, a condition marked by a constant sensation of feeling overwhelmed, like worrying about everyday things, such as taking care of your children. Agoraphobia, a condition marked by intense fear of becoming overwhelmed, causes many people to avoid things such as new places or open, spacious areas. Selective mutism is a condition where you have intense fear or anxiety, making you unable to speak in certain situations. This affects a lot of young children, but it can also affect adults.</p>
+                    
+                    <h4>Anxiety does many things to people's bodies, including:</h4>
+                    <ul>
+                        <li>Impeding their ability to function properly</li>
+                        <li>Causing many to overreact</li>
+                        <li>Making them unable to control their responses in specific scenarios</li>
+                        <li>Racing thoughts</li>
+                        <li>Restlessness</li>
+                        <li>Increased heart rate</li>
+                    </ul>
+                    
+                    <h4>Treatments for anxiety:</h4>
+                    <ul>
+                        <li>Stress management techniques like meditation, breathing exercises (box method), and mindfulness</li>
+                        <li>Participate in support groups for people with anxiety, providing an opportunity for you to relate with others going through similar mental battles, in comparison to you</li>
+                        <li>Learn more about your condition and spread awareness/knowledge regarding this disability, so people around you can better understand this condition</li>
+                        <li>Limiting or avoiding caffeine can help improve your anxiety, as it blocks a brain chemical that promotes relaxation</li>
+                        <li>Talk to your healthcare provider for treatment options and to better understand your condition</li>
+                    </ul>
+                    
+                    <p>The most direct cause of anxiety disorders is genetics or traits passed down from parent to child. One interesting fact about anxiety is that women are about twice as likely as men to have it. Another one is that social anxiety disorder affects about 7% of the U.S. population.</p>
+                    <hr>
                 </div>
 
-                <!-- CTA Banner -->
-                <div class="cta-banner">
-                    <h3>Want to Learn More?</h3>
-                    <p>Explore detailed information about each condition, including symptoms, causes, and treatment options.</p>
-                    <a href="disorders.html">View All Disorders</a>
-                    <a href="appointment.html">Talk to a Professional</a>
+                <!-- OCD Section -->
+                <div id="ocd" class="disorder-detail-section">
+                    <h3>OCD (Obsessive-Compulsive Disorder)</h3>
+                    <p><strong>Source:</strong> <a href="https://www.mayoclinic.org/diseases-conditions/obsessive-compulsive-disorder/symptoms-causes/syc-20354432" target="_blank">https://www.mayoclinic.org/diseases-conditions/obsessive-compulsive-disorder/symptoms-causes/syc-20354432</a></p>
+                    
+                    <p>OCD, or Obsessive-compulsive disorder, is a mental illness marked by unwanted thoughts and fears about day-to-day life.</p>
+                    
+                    <h4>Common features associated with OCD include:</h4>
+                    <ul>
+                        <li>Self-doubt</li>
+                        <li>Having a hard time dealing with uncertainty</li>
+                        <li>Constant unwanted thoughts regarding losing control and committing self-harm or harm to others</li>
+                        <li>Need to follow a strict routine</li>
+                        <li>Demanding reassurance</li>
+                    </ul>
+                    
+                    <h4>Examples of OCD include:</h4>
+                    <ul>
+                        <li>Being afraid of contamination by touching certain objects or dirt</li>
+                        <li>Confusion regarding whether you have locked the door or closed your windows before leaving</li>
+                        <li>The need to have objects arranged in a certain order</li>
+                        <li>Vivid images of cruel things, like being in a car crash that killed many</li>
+                        <li>Doubt regarding how to act in public</li>
+                        <li>Weird Sexual Thoughts</li>
+                        <li>Wanting to stay away from scenarios that can cause obsession</li>
+                        <li>Noticing certain daily patterns</li>
+                        <li>Continuous checking of tiny details</li>
+                    </ul>
+                    
+                    <h4>Some theories regarding causes of OCD include…</h4>
+                    <p>Genetics or traits are passed down from parent to child. Biology like differences in the body's functions. Or by learning obsessive fear from family members over time. Stressful life events, such as a death, can also increase the chance of one getting OCD. OCD may also be caused by other mental health disorders, such as anxiety and depression.</p>
+                    
+                    <h4>Some effects of OCD include:</h4>
+                    <ul>
+                        <li>Increased anxiety</li>
+                        <li>Hard time concentrating on simple tasks</li>
+                        <li>Need to do actions that disrupt daily tasks</li>
+                        <li>Decreased academic or work performance</li>
+                        <li>Emotional exhaustion caused by the constant fighting from irrational fear</li>
+                        <li>Troubled relationship with family</li>
+                        <li>Trouble making friends</li>
+                        <li>Having a hard time socializing with others in general</li>
+                        <li>Overall, these things may cause a lower quality of life and need for suicide</li>
+                    </ul>
+                    
+                    <p>One fact about OCD is that it usually starts earlier in one's life and tends to vary in severity. Also, as of now, there is no precise way to prevent OCD, but going for regular check-ups with your doctor should be fine.</p>
+                    <hr>
+                </div>
+
+                <!-- Depression Section -->
+                <div id="depression" class="disorder-detail-section">
+                    <h3>Depression</h3>
+                    <p><strong>Sources:</strong> <a href="https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007" target="_blank">https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007</a> | <a href="https://988lifeline.org/talk-to-someone-now/" target="_blank">https://988lifeline.org/talk-to-someone-now/</a> | <a href="https://988lifeline.org/chat/" target="_blank">https://988lifeline.org/chat/</a> | <a href="https://www.beyondblue.org.au/mental-health/depression/types-of-depression" target="_blank">https://www.beyondblue.org.au/mental-health/depression/types-of-depression</a> | <a href="https://www.health.harvard.edu/topics/depression" target="_blank">https://www.health.harvard.edu/topics/depression</a></p>
+                    
+                    <p>Depression is a mood disorder that results in a constant feeling of unhappiness and loss of interest in doing daily activities.</p>
+                    
+                    <h4>Some symptoms of Depression include:</h4>
+                    <ul>
+                        <li>Constant sensation of sadness or emptiness</li>
+                        <li>Quick to anger over little things</li>
+                        <li>Insomnia, a disorder that causes difficulty sleeping or constantly sleeping too much (10+ hours of sleep)</li>
+                        <li>Easily tired, making even small tasks a pain</li>
+                        <li>Reduced appetite and weight loss</li>
+                        <li>Reduced thirst and dehydration</li>
+                        <li>Anxiety</li>
+                        <li>Restlessness</li>
+                        <li>Being disinterested in most activities</li>
+                        <li>Constant guilt over past failures or incidents</li>
+                        <li>Self-blame over small matters</li>
+                        <li>Problems regarding thinking and remembering things</li>
+                        <li>Recurring thoughts of death and suicidal thoughts</li>
+                        <li>Often wanting to stay at home and avoiding going out to socialize with friends and family</li>
+                        <li>Constantly indecisive</li>
+                    </ul>
+                    
+                    <h4>Types of Depression:</h4>
+                    <p>Major depression or clinical depression, is a type of depression that lasts 2 weeks or longer</p>
+                    <p>Bipolar Disorder is a type of depression marked by a varied change in mood from high (maniac) to low (depressed). This disorder is further divided into Bipolar I and Bipolar II</p>
+                    <ul>
+                        <li>Bipolar I is when the person has at least one maniac episode (maniac episode is a medical term used to describe abnormally elevated, overly energetic, or irritable mood that lasts at least one week)</li>
+                        <li>Bipolar is when the person has had no manic episodes but has had at least one hypomanic episode, a "milder" version of a manic episode, and at least one period of depression</li>
+                    </ul>
+                    <p>Persistent depressive disorder, is a type of depression that is less severe than major depression, but lasts way longer.</p>
+                    <p>Postpartum depression, a type of depression marked by a major depression episode 2 or 3 months after giving birth</p>
+                    <p>SAD or Seasonal affective disorder, is a type of depression that mainly occurs during winter months like January, November or December.</p>
+                    
+                    <h4>Some ways to go about depression include:</h4>
+                    <ul>
+                        <li>Seeing a doctor or mental health professional</li>
+                        <li>Seek treatment by talking to a friend or loved one</li>
+                        <li>Contact suicide hotlines like 988 Suicide & Crisis Lifeline, available, which is available 24/7</li>
+                        <li>Use Lifeline Chat, a free and confidential chat room</li>
+                        <li>Talk to a religious/spiritual leader</li>
+                    </ul>
+                    
+                    <p>One fact about depression is that it can affect all ages and can be caused by psychological factors like heartbreak caused by the loss of one's partner or spouse.</p>
+                    <hr>
+                </div>
+
+                <!-- ADHD Section -->
+                <div id="adhd" class="disorder-detail-section">
+                    <h3>ADHD (Attention-Deficit/Hyperactivity Disorder)</h3>
+                    <p><strong>Source:</strong> <a href="https://www.mayoclinic.org/diseases-conditions/adhd/symptoms-causes/syc-20350889" target="_blank">https://www.mayoclinic.org/diseases-conditions/adhd/symptoms-causes/syc-20350889</a></p>
+                    
+                    <p>ADHD or Attention-deficit/hyperactivity disorder, is a disorder that causes one to feel hyperactive or unable to pay attention to things for long amounts of time, affecting many people's daily lives.</p>
+                    
+                    <h4>Symptoms of ADHD include:</h4>
+                    <ul>
+                        <li>Unable to pay attention to details</li>
+                        <li>Making careless mistakes</li>
+                        <li>Trouble focusing on a task</li>
+                        <li>Hard time following through instructions or specific tasks</li>
+                        <li>Unable to neatly organize daily tasks and activities leading to constant procrastination</li>
+                        <li>Constantly losing items such as water bottles, pencils, and laptops</li>
+                        <li>Easily distracted by others when trying to work</li>
+                        <li>Very forgetful</li>
+                        <li>Constant urge to fidget or do something like tapping hands or feet</li>
+                        <li>Constantly moving</li>
+                        <li>Blurting out answers</li>
+                        <li>Interrupting others</li>
+                        <li>Unable to patiently wait for your turn</li>
+                    </ul>
+                    
+                    <h4>One factor/cause of ADHD may include:</h4>
+                    <p>genetics, such as having a parent or sibling with ADHD or other mental health disorders. Another cause of ADHD is the environment toxins such as lead found in paint and pipes. Also central nervous system conditions are another cause of ADHD.</p>
+                    
+                    <h4>Effects of ADHD include:</h4>
+                    <ul>
+                        <li>Having poor self esteem</li>
+                        <li>Having sleep disorders such as insomnia</li>
+                        <li>Having higher risk of suicide</li>
+                        <li>Trouble in classroom or work environment, leading to bad grades, constant periods of suspensions, poor performance and constantly getting fired from job</li>
+                        <li>Higher chance of being accidents or getting injured</li>
+                        <li>Higher risk of alcohol and drug misuse</li>
+                    </ul>
+                    
+                    <h4>Some prevention methods to lower risk of ADHD include:</h4>
+                    <ul>
+                        <li>During pregnancy avoid anything that could harm your child's mental development before birth like alcohol and smoking</li>
+                        <li>Protect your child from toxins like lead and cigarette smoke</li>
+                        <li>Limit screen time by enforcing specific times when your child can watch TV</li>
+                    </ul>
+                    
+                    <h4>Types of ADHD include:</h4>
+                    <p>Predominately inattentive, a type of ADHD marked by constant trouble regarding staying focused and unable to organize daily tasks</p>
+                    <p>Predominately hyperactive and impulsive, a type of ADHD marked by having too much energy (sometimes leading to disruptive behavior) and acting without thinking</p>
+                    <hr>
+                </div>
+
+                <!-- PTSD Section -->
+                <div id="ptsd" class="disorder-detail-section">
+                    <h3>PTSD (Post-Traumatic Stress Disorder)</h3>
+                    <p><strong>Source:</strong> <a href="https://www.mayoclinic.org/diseases-conditions/post-traumatic-stress-disorder/symptoms-causes/syc-20355967" target="_blank">https://www.mayoclinic.org/diseases-conditions/post-traumatic-stress-disorder/symptoms-causes/syc-20355967</a></p>
+                    
+                    <p>PTSD or Post-traumatic stress disorder is a disorder caused by a traumatic event or experience that affects one's life. For example, PTSD is very common in war veterans due to the traumatic experience veterans experience in war.</p>
+                    
+                    <h4>Some symptoms of PTSD include:</h4>
+                    <ul>
+                        <li>Constant reliving of stressful, unwanted memories over and over again</li>
+                        <li>Having many flashbacks</li>
+                        <li>Constant dreams/nightmares regarding a terrifying event</li>
+                        <li>Severe emotional distress or physical reactions caused by the constant flashbacks</li>
+                    </ul>
+                    
+                    <p>Due to PTSD's tragic nature, many people try to cope with these strange constant reliving by trying not to think about the event or staying away from places, activities or people that might remind you of the event.</p>
+                    
+                    <h4>Some effects of PTSD include:</h4>
+                    <ul>
+                        <li>Suicidal thoughts</li>
+                        <li>Constant sense of guilt, shame or blame</li>
+                        <li>Negative thoughts about the world, other people, or yourself</li>
+                        <li>Being unable to remember important aspects of traumatic events</li>
+                        <li>Feeling detached from family and friends</li>
+                        <li>No sense of emotions</li>
+                        <li>No interest in activities you once enjoyed</li>
+                        <li>Hard time feeling positive emotions like happiness, excitement, and/or pleasure</li>
+                        <li>Easily startled or scared.. For example, slamming doors reminding you of gunshots</li>
+                        <li>Constantly on guard and trying to spot danger or any suspicious activity</li>
+                        <li>Insomnia or other sleep problems</li>
+                        <li>Hard time focusing</li>
+                        <li>Outburst of emotions such as anger, and aggressive behavior</li>
+                        <li>Sweating</li>
+                        <li>Fast and uneasy breathing</li>
+                        <li>Rapid heartbeat</li>
+                        <li>Constant shaking</li>
+                    </ul>
+                    
+                    <h4>Way to go about PTSD:</h4>
+                    <ul>
+                        <li>Contact a doctor</li>
+                        <li>Talk to a loved one or friend</li>
+                        <li>Talk to a spiritual leader</li>
+                        <li>If you have suicidal thoughts call 988, the suicide and crisis lifeline which is available 24/7 or text 838255</li>
+                        <li>Go to your family therapist</li>
+                    </ul>
+                    
+                    <p>Getting timely help is important to avoid any stressful reactions from getting worse and possibly leading to suicide. By doing one or more of the ways above to cope with PTSD, you can prevent unhealthy coping methods such as misusing alcohol, drugs or cigarettes.</p>
+                    
+                    <p>Common causes of PTSD include close encounters with death, war, serious injury, sexual assault, experiencing childhood abuse, physical assault, being threatned with a weapon.</p>
+                    <hr>
+                </div>
+
+                <!-- Bipolar Disorder Section -->
+                <div id="bipolar" class="disorder-detail-section">
+                    <h3>Bipolar Disorder</h3>
+                    <p><strong>Sources:</strong> <a href="https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007" target="_blank">https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007</a> | <a href="https://www.mayoclinic.org/diseases-conditions/bipolar-disorder/symptoms-causes/syc-20355955" target="_blank">https://www.mayoclinic.org/diseases-conditions/bipolar-disorder/symptoms-causes/syc-20355955</a></p>
+                    
+                    <p>Bipolar Disorder is a type of depression marked by a varied change in mood from high (maniac) to low (depressed).</p>
+                    
+                    <h4>Types of Bipolar Disorders include:</h4>
+                    <p>Bipolar I is when the person has at least one maniac episode (maniac episode is a medical term used to describe abnormally elevated, overly energetic, or irritable mood that lasts at least one week)</p>
+                    <p>Bipolar is when the person has had no manic episodes but has had at least one hypomanic episode, a "milder" version of a manic episode, and at least one period of depression</p>
+                    <p>Cyclothymia, frequent mood swings between mild depression and hypomania. These symptoms are less severe than major depression</p>
+                    
+                    <p>Generally speaking, mania is more severe than hypomania as it causes more noticeable problems at work, school and other social activities. Also, Mania may cause psychosis or a break from reality while hypomania can't cause that.</p>
+                    
+                    <h4>Some symptoms of bipolar disorder include:</h4>
+                    <ul>
+                        <li>Racing thoughts</li>
+                        <li>Talking very fast</li>
+                        <li>Feeling pressured to keep talking</li>
+                        <li>Feeling like ideas are coming nonstop</li>
+                        <li>Need much less sleep (2-3) and still feeling full of energy</li>
+                        <li>Increased restlessness</li>
+                        <li>Doing many risky things like unsafe sex, speeding, spending lot of money</li>
+                        <li>Feeling depressed</li>
+                        <li>Trouble concentrating</li>
+                        <li>Difficulty making choices</li>
+                        <li>Thinking negatively of yourself</li>
+                        <li>Thoughts of suicide</li>
+                        <li>Sleeping too much</li>
+                        <li>Eating less or more than usual</li>
+                    </ul>
+                    
+                    <h4>Some causes of Bipolar disorder include:</h4>
+                    <p>genetics such as having a parent or sibling with Bipolar disorder, and physical changes in their brains (these changes are still uncertain and yet to be fully confirmed). Also can be caused by periods of high stress caused by things like the death of your friends, pets and/or family or another traumatic event. Finally Bipolar disorder can also be caused by severe drug or alcohol misuse.</p>
+                    
+                    <h4>Prevention against bipolar disorder include:</h4>
+                    <ul>
+                        <li>Get enough sleep, (7-8 hours of sleep daily)</li>
+                        <li>Avoid drinking alcohol and consuming drugs that can make symptoms worse</li>
+                        <li>Continue treatment and taking medication</li>
+                    </ul>
+                    <hr>
+                </div>
+
+                <!-- Eating Disorders Note -->
+                <div id="eating" class="disorder-detail-section">
+                    <h3>Eating Disorders</h3>
+                    <p><strong>Source:</strong> <a href="https://www.mayoclinic.org/diseases-conditions/eating-disorders/symptoms-causes/syc-20353603" target="_blank">https://www.mayoclinic.org/diseases-conditions/eating-disorders/symptoms-causes/syc-20353603</a></p>
+                    
+                    <p>Eating disorders are serious mental health conditions that involve unhealthy eating behaviors. This includes conditions such as anorexia nervosa, bulimia nervosa, and binge eating disorder. These are serious conditions requiring professional support and treatment. If you or someone you know is struggling with an eating disorder, please reach out to a healthcare provider or mental health professional.</p>
+                    
+                    <p><strong>For support:</strong> Call 988 Suicide & Crisis Lifeline (available 24/7) or text 838255.</p>
                 </div>
             </div>
         </div>

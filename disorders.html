@@ -141,9 +141,17 @@
         <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
           <li><a href="index.html">HOME</a></li>
-          <li><a href="About.html">ABOUT US</a></li>
           <li class="has-dropdown">
-            <a href="course.html">COURSE <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <ul class="dropdown">
+              <li><a href="about-youmatter.html">About You Matter</a></li>
+              <li><a href="about-who-we-are.html">Who We Are</a></li>
+              <li><a href="about-why-we-started.html">Why We Started</a></li>
+              <li><a href="about-what-we-do.html">What We Do</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="course.html">SERVICES <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
             <ul class="dropdown">
               <li><a href="disorders.html" aria-current="page">Disorders</a></li>
               <li><a href="appointment.html">Appointment</a></li>
@@ -160,7 +168,7 @@
   </section>
 
   <!-- Page body -->
-  <section class="course">
+  <section class="Services">
     <div class="mha-wrap">
 
       <!-- HOME: card grid (RE-ORDERED) -->
@@ -172,7 +180,7 @@
               <div class="mha-top mha-top--anxiety" aria-hidden="true"><img src="images/anxiety.png" alt="" aria-hidden="true"></div>
               <div class="mha-bottom">
                 <h3 class="mha-title">Anxiety Disorders</h3>
-                <p class="mha-snippet">When worry becomes constant and feels like it’s steering your day.</p>
+                <p class="mha-snippet">When worry becomes constant and feels like it's steering your day.</p>
                 <span class="mha-more">Learn more</span>
               </div>
             </button>
@@ -183,7 +191,7 @@
               <div class="mha-top mha-top--ocd" aria-hidden="true"><img src="images/ocd.png" alt="" aria-hidden="true"></div>
               <div class="mha-bottom">
                 <h3 class="mha-title">OCD</h3>
-                <p class="mha-snippet">Intrusive thoughts and “must-do” rituals that crowd out daily life.</p>
+                <p class="mha-snippet">Intrusive thoughts and "must-do" rituals that crowd out daily life.</p>
                 <span class="mha-more">Learn more</span>
               </div>
             </button>
@@ -288,7 +296,7 @@
         </div>
 
         <article class="mha-content" id="mhaDetailBody">
-          <!-- JS injects the selected condition’s HTML here -->
+          <!-- JS injects the selected condition's HTML here -->
         </article>
       </div>
 
@@ -323,48 +331,222 @@
         anxiety:{
           title:"Anxiety Disorders",
           html:`
-            <p>Everyone feels anxious at times, but anxiety disorders are different: worry becomes frequent, sticky, and hard to turn down even when nothing dangerous is happening. Many people describe a sense of being “on alert,” difficulty relaxing, and a racing mind that makes sleep and focus tough. Anxiety can show up as muscle tension, stomach discomfort, restlessness, trouble concentrating, and a tendency to avoid situations that feel threatening. Over time, avoidance shrinks daily life and reinforces the belief that fears can’t be handled.</p>
-            <p>Effective care is available. Psychological treatments—especially cognitive behavioral strategies and exposure-based approaches—teach practical skills to meet feared situations gradually and safely, so confidence grows and avoidance fades. Lifestyle supports such as consistent sleep, daily movement, and reducing caffeine help the nervous system settle. Medications like SSRIs or SNRIs can be useful when symptoms are persistent or severe and are often combined with therapy for best results.</p>
+            <img src="images/anxiety.png" alt="Anxiety Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
+            <p>Anxiety Disorder is a mental health condition that causes constant fear or worry about stressful situations.</p>
+            <h4>Some symptoms of anxiety include:</h4>
+            <ul>
+              <li>Pounding heart</li>
+              <li>Dry mouth</li>
+              <li>Nausea</li>
+              <li>Shortness of breath</li>
+              <li>Sweating</li>
+              <li>Regular numbness in the hands or feet</li>
+              <li>Insomnia or Trouble falling asleep</li>
+              <li>Muscle tension</li>
+              <li>Trouble concentrating</li>
+              <li>Easily irritable</li>
+              <li>Constant sense of panic and uneasiness</li>
+            </ul>
+            <p>Moreover, anxiety can be beneficial, helping people notice dangerous situations quicker than others.</p>
+            <h4>Some types of anxiety disorders include:</h4>
+            <p><strong>GAD (Generalized Anxiety Disorder):</strong> A condition marked by a constant sensation of feeling overwhelmed, like worrying about everyday things, such as taking care of your children.</p>
+            <p><strong>Agoraphobia:</strong> A condition marked by intense fear of becoming overwhelmed, causes many people to avoid things such as new places or open, spacious areas.</p>
+            <p><strong>Selective Mutism:</strong> A condition where you have intense fear or anxiety, making you unable to speak in certain situations. This affects a lot of young children, but it can also affect adults.</p>
+            <h4>Anxiety does many things to people's bodies, including:</h4>
+            <ul>
+              <li>Impeding their ability to function properly</li>
+              <li>Causing many to overreact</li>
+              <li>Making them unable to control their responses in specific scenarios</li>
+              <li>Racing thoughts</li>
+              <li>Restlessness</li>
+              <li>Increased heart rate</li>
+            </ul>
+            <h4>Treatments for anxiety:</h4>
+            <ul>
+              <li>Stress management techniques like meditation, breathing exercises (box method), and mindfulness</li>
+              <li>Participate in support groups for people with anxiety, providing an opportunity for you to relate with others going through similar mental battles, in comparison to you</li>
+              <li>Learn more about your condition and spread awareness/knowledge regarding this disability, so people around you can better understand this condition</li>
+              <li>Limiting or avoiding caffeine can help improve your anxiety, as it blocks a brain chemical that promotes relaxation</li>
+              <li>Talk to your healthcare provider for treatment options and to better understand your condition</li>
+            </ul>
+            <p>The most direct cause of anxiety disorders is genetics or traits passed down from parent to child. One interesting fact about anxiety is that women are about twice as likely as men to have it. Another one is that social anxiety disorder affects about 7% of the U.S. population.</p>
           `
         },
         ocd:{
           title:"Obsessive-Compulsive Disorder (OCD)",
           html:`
-            <p>OCD is not simply about neatness or liking things a certain way. It involves intrusive, unwanted thoughts, images, or urges (obsessions) that feel alarming or wrong, and repetitive responses (compulsions) intended to reduce distress or prevent harm. A person may wash, check, arrange, repeat, seek reassurance, or review thoughts mentally. Relief after a ritual is typically short-lived, creating a cycle that consumes time and energy and interferes with school, work, and relationships.</p>
-            <p>The most effective treatment is Exposure and Response Prevention (a form of CBT), which helps people gently face triggers while learning to resist rituals so anxiety can rise and fall on its own. Many find that the fear loses its power when rituals are reduced consistently and with support. Medications—usually SSRIs at therapeutic doses—can also help reduce the intensity of obsessions and compulsions and are commonly used alongside therapy.</p>
+            <img src="images/ocd.png" alt="OCD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
+            <p>OCD, or Obsessive-compulsive disorder, is a mental illness marked by unwanted thoughts and fears about day-to-day life.</p>
+            <h4>Common features associated with OCD include:</h4>
+            <ul>
+              <li>Self-doubt</li>
+              <li>Having a hard time dealing with uncertainty</li>
+              <li>Constant unwanted thoughts regarding losing control and committing self-harm or harm to others</li>
+              <li>Need to follow a strict routine</li>
+              <li>Demanding reassurance</li>
+            </ul>
+            <h4>Examples of OCD include:</h4>
+            <ul>
+              <li>Being afraid of contamination by touching certain objects or dirt</li>
+              <li>Confusion regarding whether you have locked the door or closed your windows before leaving</li>
+              <li>The need to have objects arranged in a certain order</li>
+              <li>Vivid images of cruel things, like being in a car crash that killed many</li>
+              <li>Doubt regarding how to act in public</li>
+              <li>Weird Sexual Thoughts</li>
+              <li>Wanting to stay away from scenarios that can cause obsession</li>
+              <li>Noticing certain daily patterns</li>
+              <li>Continuous checking of tiny details</li>
+            </ul>
+            <h4>Some theories regarding causes of OCD include:</h4>
+            <p>Genetics or traits are passed down from parent to child. Biology is like differences in the body's functions. Or by learning obsessive fear from family members over time. Stressful life events, such as a death, can also increase the chance of one getting OCD. OCD may also be caused by other mental health disorders, such as anxiety and depression.</p>
+            <h4>Some effects of OCD include:</h4>
+            <ul>
+              <li>Increased anxiety</li>
+              <li>Hard time concentrating on simple tasks</li>
+              <li>Need to do actions that disrupt daily tasks</li>
+              <li>Decreased academic or work performance</li>
+              <li>Emotional exhaustion caused by the constant fighting due to irrational fear</li>
+              <li>Troubled relationship with family</li>
+              <li>Trouble making friends</li>
+              <li>Having a hard time socializing with others in general</li>
+              <li>Overall, these things may cause a lower quality of life and need for suicide</li>
+            </ul>
+            <p>One fact about OCD is that it usually starts earlier in one's life and tends to vary in severity. Also, as of now, there is no precise way to prevent OCD, but going for regular check-ups with your doctor should be fine.</p>
           `
         },
         depression:{
           title:"Depression",
           html:`
-            <p>Depression is more than a bad day. It often brings a deep, persistent change in mood, motivation, and thinking. People may feel empty or weighed down, lose interest in activities that used to matter, and struggle with energy, sleep, or appetite. Thoughts can turn self-critical, slow, or foggy, and ordinary tasks feel unusually effortful. Depression can affect anyone, and it is not a personal failing—it's a treatable health condition.</p>
-            <p>Recovery typically involves a combination of approaches. Psychotherapies such as cognitive behavioral or interpersonal therapy provide structure for understanding patterns that keep low mood going and for rebuilding routines, relationships, and meaning. Antidepressant medications may help reset brain pathways that influence mood and energy; benefits usually accumulate over several weeks. Gentle activity, daylight exposure, and connection with supportive people all contribute to healing. If thoughts of self-harm are present, urgent evaluation is essential and help is available right away.</p>
+            <img src="images/Depression.png" alt="Depression" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
+            <p>Depression is a mood disorder that results in a constant feeling of unhappiness and loss of interest in doing daily activities.</p>
+            <h4>Some symptoms of Depression include:</h4>
+            <ul>
+              <li>Constant sensation of sadness or emptiness</li>
+              <li>Quick to anger over little things</li>
+              <li>Insomnia, a disorder that causes difficulty sleeping or constantly sleeping too much (10+ hours of sleep)</li>
+              <li>Easily tired, making even small tasks a pain</li>
+              <li>Reduced appetite and weight loss</li>
+              <li>Reduced thirst and dehydration</li>
+              <li>Anxiety</li>
+              <li>Restlessness</li>
+              <li>Being disinterested in most activities</li>
+              <li>Constant guilt over past failures or incidents</li>
+              <li>Self-blame over small matters</li>
+              <li>Problems regarding thinking and remembering things</li>
+              <li>Recurring thoughts of death and suicidal thoughts</li>
+              <li>Often wanting to stay at home and avoiding going out to socialize with friends and family</li>
+              <li>Constantly indecisive</li>
+            </ul>
+            <h4>Types of Depression:</h4>
+            <p><strong>Major depression, or clinical depression:</strong> A type of depression that lasts 2 weeks or longer</p>
+            <p><strong>Persistent depressive disorder:</strong> A type of depression that is less severe than major depression, but lasts way longer.</p>
+            <p><strong>Postpartum depression:</strong> A type of depression marked by a major depressive episode 2 or 3 months after giving birth</p>
+            <p><strong>SAD or Seasonal Affective Disorder:</strong> A type of depression that mainly occurs during winter months like January, November, or December.</p>
+            <h4>Some ways to go about depression include:</h4>
+            <ul>
+              <li>Seeing a doctor or mental health professional</li>
+              <li>Seek treatment by talking to a friend or loved one</li>
+              <li>Contact suicide hotlines like 988 Suicide & Crisis Lifeline, available 24/7</li>
+              <li>Use Lifeline Chat, a free and confidential chat room</li>
+              <li>Talk to a religious/spiritual leader</li>
+            </ul>
+            <p>One fact about depression is that it can affect all ages and can be caused by psychological factors like heartbreak caused by the loss of one's partner or spouse.</p>
           `
         },
         adhd:{
           title:"Attention-Deficit/Hyperactivity Disorder (ADHD)",
           html:`
-            <p>ADHD is a neurodevelopmental condition that changes how attention, activity, and impulse control are regulated. Many describe a brain that seeks stimulation: focusing can be hard on tasks that are routine or slow, while hyperfocus can appear on topics of high interest. People with ADHD may forget steps, miss details, interrupt unintentionally, or feel “always on the go,” which can be frustrating despite strong intentions and effort. These patterns are real and common in both children and adults.</p>
+            <img src="images/adhd.png" alt="ADHD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
+            <p>ADHD is a neurodevelopmental condition that changes how attention, activity, and impulse control are regulated. Many describe a brain that seeks stimulation: focusing can be hard on tasks that are routine or slow, while hyperfocus can appear on topics of high interest. People with ADHD may forget steps, miss details, interrupt unintentionally, or feel "always on the go," which can be frustrating despite strong intentions and effort. These patterns are real and common in both children and adults.</p>
             <p>Support starts with understanding. Practical tools—visual schedules, external reminders, breaking work into short sprints, and building consistent routines—lighten the load. Behavioral coaching and therapy can strengthen planning and self-management skills. Medications (stimulant or non-stimulant) are highly studied and, when appropriate, can improve focus and task completion. School and workplace accommodations such as structured deadlines and reduced distractions can turn strengths into dependable performance.</p>
           `
         },
         ptsd:{
           title:"Post-Traumatic Stress Disorder (PTSD)",
           html:`
-            <p>After trauma, the nervous system can stay in survival mode. PTSD makes reminders of the event feel immediate and threatening, even when the danger has passed. Intrusive memories or nightmares appear without warning; people may avoid places, people, or conversations that stir up distress; and shifts in mood, beliefs, sleep, and startle responses are common. These reactions are the brain’s attempt to protect, yet they often keep healing out of reach.</p>
-            <p>Evidence-based therapies help the brain process what happened and reclaim a sense of safety. Treatments such as Cognitive Processing Therapy, Prolonged Exposure, and EMDR guide people to revisit memories in a planned, supported way so the intensity decreases over time. Medications—including certain antidepressants—can reduce symptoms like hyperarousal and improve sleep, while peer or group support reduces isolation and validates recovery.</p>
+            <img src="images/ptsd.png" alt="PTSD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
+            <p>PTSD, or Post-traumatic stress disorder, is a disorder caused by a traumatic event or experience that affects one's life. For example, PTSD is very common in war veterans due to the traumatic experiences veterans experience in war.</p>
+            <h4>Some symptoms of PTSD include:</h4>
+            <ul>
+              <li>Constant reliving of stressful, unwanted memories over and over again</li>
+              <li>Having many flashbacks</li>
+              <li>Constant dreams/nightmares regarding a terrifying event</li>
+              <li>Severe emotional distress or physical reactions caused by the constant flashbacks</li>
+            </ul>
+            <p>Due to PTSD's tragic nature, many people try to cope with these strange constant reliving by trying not to think about the event or staying away from places, activities or people that might remind you of the event.</p>
+            <h4>Some effects of PTSD include:</h4>
+            <ul>
+              <li>Suicidal thoughts</li>
+              <li>Constant sense of guilt, shame or blame</li>
+              <li>Negative thoughts about the world, other people, or yourself</li>
+              <li>Being unable to remember important aspects of traumatic events</li>
+              <li>Feeling detached from family and friends</li>
+              <li>No sense of emotions</li>
+              <li>No interest in activities you once enjoyed</li>
+              <li>Hard time feeling positive emotions like happiness, excitement, and/or pleasure</li>
+              <li>Easily startled or scared. For example, slamming doors reminding you of gunshots</li>
+              <li>Constantly on guard and trying to spot danger or any suspicious activity</li>
+              <li>Insomnia or other sleep problems</li>
+              <li>Hard time focusing</li>
+              <li>Outbursts of emotions such as anger and aggressive behavior</li>
+              <li>Sweating</li>
+              <li>Fast and uneasy breathing</li>
+              <li>Rapid heartbeat</li>
+              <li>Constant shaking</li>
+            </ul>
+            <h4>Ways to go about PTSD:</h4>
+            <ul>
+              <li>Contact a doctor</li>
+              <li>Talk to a loved one or friend</li>
+              <li>Talk to a spiritual leader</li>
+              <li>If you have suicidal thoughts, call 988, the suicide and crisis lifeline, which is available 24/7, or text 838255</li>
+              <li>Go to your family therapist</li>
+            </ul>
+            <p>Getting timely help is important to avoid any stressful reactions from getting worse and possibly leading to suicide. By doing one or more of the ways above to cope with PTSD, you can prevent unhealthy coping methods such as misusing alcohol, drugs, or cigarettes.</p>
+            <p>Common causes of PTSD include close encounters with death, war, serious injury, sexual assault, experiencing childhood abuse, physical assault, and being threatened with a weapon.</p>
           `
         },
         bipolar:{
           title:"Bipolar Disorder",
           html:`
-            <p>Bipolar disorder involves distinct shifts in mood, energy, and activity levels. During manic or hypomanic periods, people may feel unusually energized or euphoric, sleep much less, think and speak quickly, and take risks that are out of character. Depressive episodes bring lowered mood, interest, and drive. These cycles are medical in nature and can seriously impact judgment, finances, school, and relationships—but with the right plan, many people live stable, fulfilling lives.</p>
-            <p>Care focuses on preventing and smoothing mood swings. Mood stabilizing medications such as lithium and other options are the foundation for many, complemented by psychotherapy that builds routines, monitors early warning signs, and strengthens support systems. Regular sleep, substance-use reduction, and stress management are practical tools that protect stability and enhance treatment.</p>
+            <img src="images/bipolar.png" alt="Bipolar Disorder" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
+            <p>Bipolar Disorder is a type of depression marked by a varied change in mood from high (maniac) to low (depressed).</p>
+            <h4>Types of Bipolar Disorders include:</h4>
+            <p><strong>Bipolar I:</strong> When the person has at least one maniac episode (a maniac episode is a medical term used to describe an abnormally elevated, overly energetic, or irritable mood that lasts at least one week)</p>
+            <p><strong>Bipolar II:</strong> When the person has had no manic episodes but has had at least one hypomanic episode, a "milder" version of a manic episode, and at least one period of depression.</p>
+            <p><strong>Cyclothymia:</strong> Frequent mood swings between mild depression and hypomania. These symptoms are less severe than major depression.</p>
+            <p>Generally speaking, mania is more severe than hypomania as it causes more noticeable problems at work, school, and other social activities. Also, Mania may cause psychosis or a break from reality, while hypomania can't cause that.</p>
+            <h4>Some symptoms of bipolar disorder include:</h4>
+            <ul>
+              <li>Racing thoughts</li>
+              <li>Talking very fast</li>
+              <li>Feeling pressured to keep talking</li>
+              <li>Feeling like ideas are coming nonstop</li>
+              <li>Need much less sleep (2-3) and still feeling full of energy</li>
+              <li>Increased restlessness</li>
+              <li>Doing many risky things like unsafe sex, speeding, and spending a lot of money</li>
+              <li>Feeling depressed</li>
+              <li>Trouble concentrating</li>
+              <li>Difficulty making choices</li>
+              <li>Thinking negatively of yourself</li>
+              <li>Thoughts of suicide</li>
+              <li>Sleeping too much</li>
+              <li>Eating less or more than usual</li>
+            </ul>
+            <h4>Some causes of Bipolar disorder include:</h4>
+            <p>Genetics, such as having a parent or sibling with Bipolar disorder, and physical changes in their brain (these changes are still uncertain and yet to be fully confirmed). Also can be caused by periods of high stress caused by things like the death of your friends, pets, and/or family, or another traumatic event. Finally, Bipolar disorder can also be caused by severe drug or alcohol misuse.</p>
+            <h4>Prevention against bipolar disorder includes:</h4>
+            <ul>
+              <li>Get enough sleep (7-8 hours of sleep daily)</li>
+              <li>Avoid drinking alcohol and consuming drugs that can make symptoms worse</li>
+              <li>Continue treatment and taking medication</li>
+            </ul>
           `
         },
         eating:{
           title:"Eating Disorders",
           html:`
+            <img src="images/eatingdisorders.png" alt="Eating Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
             <p>Eating disorders are serious conditions—not choices—that affect health, emotions, and relationships. Thoughts about food, body shape, or weight can become relentless, while behaviors like restriction, binge eating, or purging provide short-term relief but deepen medical and psychological risks. People of every size, gender, age, and background can be affected, and many feel intense shame or secrecy that delays care.</p>
             <p>Recovery is possible and usually involves a team. Medical monitoring ensures safety; nutrition therapy restores patterns that fuel the body and brain; and evidence-based psychotherapies (such as Family-Based Treatment, CBT, or DBT) address emotions, beliefs, and coping. Treatment may be outpatient or, when health is at risk, a higher level of care. Compassionate support from family and community is a powerful part of rebuilding a healthy relationship with food and with oneself.</p>
           `
@@ -372,6 +554,7 @@
         suicide:{
           title:"Suicide",
           html:`
+            <img src="images/suicide.png" alt="Suicide" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
             <p><strong>If you or someone you know is struggling or in crisis, help is available now.</strong> Reach local emergency services or a crisis line. Suicidal thoughts often reflect overwhelming pain, isolation, or a belief that things will never improve. These experiences are common and treatable; with connection and care, people do get through.</p>
             <p>Responding early matters. Professional evaluation can identify treatable conditions like depression, substance use, or trauma responses and create a safety plan that reduces access to lethal means, builds reasons for living, and adds 24/7 contacts. Supportive listening—staying with the person, validating their pain, and helping them reach help—saves lives.</p>
           `
@@ -379,6 +562,7 @@
         cooccurring:{
           title:"Co-occurring Mental Health & Substance Use",
           html:`
+            <img src="images/cooccurring.png" alt="Co-occurring" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
             <p>Mental health conditions and substance use often intersect. Substances may seem to blunt anxiety, lift mood, or aid sleep at first, but over time they tend to worsen symptoms, increase health risks, and make recovery harder. Integrated treatment addresses both at the same time: the same team collaborates on therapy, medications, relapse prevention, and skill-building so progress in one area supports the other.</p>
             <p>People do recover. Practical steps include safer-use education or abstinence plans, managing withdrawal or cravings with medical care when needed, trauma-informed therapy, peer support, and rebuilding daily routines that keep stress manageable and purpose visible.</p>
           `
@@ -386,6 +570,7 @@
         mood:{
           title:"Mood Disorders",
           html:`
+            <img src="images/mood.png" alt="Mood Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
             <p>Mood disorders are conditions in which changes in mood—low, elevated, or a mix—last long enough and cut deep enough to interfere with daily life. They can alter sleep and appetite, concentration, energy, and relationships. Recognizing a mood pattern and its triggers opens the door to targeted help, whether symptoms fit major depression, bipolar spectrum conditions, or persistent depressive states.</p>
             <p>Effective care typically blends psychotherapy, healthy routines, and, when indicated, medication. Many people benefit from tracking mood, sleep, and activity to spot early shifts and act quickly. With consistent support, mood becomes more predictable and goals become easier to pursue.</p>
           `
