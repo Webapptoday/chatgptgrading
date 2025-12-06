@@ -146,11 +146,12 @@
               <li><a href="disorders.html" aria-current="page">Disorders</a></li>
               <li><a href="appointment.html">Appointment</a></li>
               <li><a href="check-in.html">Check-in</a></li>
-              <li><a href="index.html">Contact Us</a></li>
+              <li><a href="gethelp.html">Get Help</a></li>
             </ul>
           </li>
           <li><a href="blog.html">BLOG</a></li>
           <li><a href="testimonials.html">TESTIMONIALS</a></li>
+          <li><a href="forums.html">FORUMS</a></li>
         </ul>
       </div>
       <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -193,7 +194,7 @@
               <div class="mha-top mha-top--depression" aria-hidden="true"><img src="images/Depression.png" alt="" aria-hidden="true"></div>
               <div class="mha-bottom">
                 <h3 class="mha-title">Depression</h3>
-                <p class="mha-snippet">More than sadness — it reshapes energy, sleep, and motivation.</p>
+                <p class="mha-snippet">More than sadness: it reshapes energy, sleep, and motivation.</p>
                 <span class="mha-more">Learn more</span>
               </div>
             </button>
@@ -260,17 +261,6 @@
               <div class="mha-bottom">
                 <h3 class="mha-title">Co-occurring Conditions</h3>
                 <p class="mha-snippet">When substance use and mental health challenges happen together.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
-          </article>
-
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="mood" aria-label="Open Mood Disorders">
-              <div class="mha-top mha-top--mood" aria-hidden="true"><img src="images/mood.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Mood Disorders</h3>
-                <p class="mha-snippet">A group of conditions where mood changes persist and impair life.</p>
                 <span class="mha-more">Learn more</span>
               </div>
             </button>
@@ -449,7 +439,7 @@
           html:`
             <img src="images/adhd.png" alt="ADHD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
             <p>ADHD is a neurodevelopmental condition that changes how attention, activity, and impulse control are regulated. Many describe a brain that seeks stimulation: focusing can be hard on tasks that are routine or slow, while hyperfocus can appear on topics of high interest. People with ADHD may forget steps, miss details, interrupt unintentionally, or feel "always on the go," which can be frustrating despite strong intentions and effort. These patterns are real and common in both children and adults.</p>
-            <p>Support starts with understanding. Practical tools—visual schedules, external reminders, breaking work into short sprints, and building consistent routines—lighten the load. Behavioral coaching and therapy can strengthen planning and self-management skills. Medications (stimulant or non-stimulant) are highly studied and, when appropriate, can improve focus and task completion. School and workplace accommodations such as structured deadlines and reduced distractions can turn strengths into dependable performance.</p>
+            <p>Support starts with understanding. Practical tools (visual schedules, external reminders, breaking work into short sprints, and building consistent routines) lighten the load. Behavioral coaching and therapy can strengthen planning and self-management skills. Medications (stimulant or non-stimulant) are highly studied and, when appropriate, can improve focus and task completion. School and workplace accommodations such as structured deadlines and reduced distractions can turn strengths into dependable performance.</p>
           `
         },
         ptsd:{
@@ -538,7 +528,7 @@
           title:"Eating Disorders",
           html:`
             <img src="images/eatingdisorders.png" alt="Eating Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Eating disorders are serious conditions—not choices—that affect health, emotions, and relationships. Thoughts about food, body shape, or weight can become relentless, while behaviors like restriction, binge eating, or purging provide short-term relief but deepen medical and psychological risks. People of every size, gender, age, and background can be affected, and many feel intense shame or secrecy that delays care.</p>
+            <p>Eating disorders are serious conditions (not choices) that affect health, emotions, and relationships. Thoughts about food, body shape, or weight can become relentless, while behaviors like restriction, binge eating, or purging provide short-term relief but deepen medical and psychological risks. People of every size, gender, age, and background can be affected, and many feel intense shame or secrecy that delays care.</p>
             <p>Recovery is possible and usually involves a team. Medical monitoring ensures safety; nutrition therapy restores patterns that fuel the body and brain; and evidence-based psychotherapies (such as Family-Based Treatment, CBT, or DBT) address emotions, beliefs, and coping. Treatment may be outpatient or, when health is at risk, a higher level of care. Compassionate support from family and community is a powerful part of rebuilding a healthy relationship with food and with oneself.</p>
           `
         },
@@ -547,7 +537,7 @@
           html:`
             <img src="images/suicide.png" alt="Suicide" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
             <p><strong>If you or someone you know is struggling or in crisis, help is available now.</strong> Reach local emergency services or a crisis line. Suicidal thoughts often reflect overwhelming pain, isolation, or a belief that things will never improve. These experiences are common and treatable; with connection and care, people do get through.</p>
-            <p>Responding early matters. Professional evaluation can identify treatable conditions like depression, substance use, or trauma responses and create a safety plan that reduces access to lethal means, builds reasons for living, and adds 24/7 contacts. Supportive listening—staying with the person, validating their pain, and helping them reach help—saves lives.</p>
+            <p>Responding early matters. Professional evaluation can identify treatable conditions like depression, substance use, or trauma responses and create a safety plan that reduces access to lethal means, builds reasons for living, and adds 24/7 contacts. Supportive listening (staying with the person, validating their pain, and helping them reach help) saves lives.</p>
           `
         },
         cooccurring:{
@@ -558,13 +548,6 @@
             <p>People do recover. Practical steps include safer-use education or abstinence plans, managing withdrawal or cravings with medical care when needed, trauma-informed therapy, peer support, and rebuilding daily routines that keep stress manageable and purpose visible.</p>
           `
         },
-        mood:{
-          title:"Mood Disorders",
-          html:`
-            <img src="images/mood.png" alt="Mood Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Mood disorders are conditions in which changes in mood—low, elevated, or a mix—last long enough and cut deep enough to interfere with daily life. They can alter sleep and appetite, concentration, energy, and relationships. Recognizing a mood pattern and its triggers opens the door to targeted help, whether symptoms fit major depression, bipolar spectrum conditions, or persistent depressive states.</p>
-            <p>Effective care typically blends psychotherapy, healthy routines, and, when indicated, medication. Many people benefit from tracking mood, sleep, and activity to spot early shifts and act quickly. With consistent support, mood becomes more predictable and goals become easier to pursue.</p>
-          `
         }
       };
 

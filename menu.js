@@ -17,18 +17,43 @@ document.addEventListener('DOMContentLoaded', function () {
   ddParents.forEach(function (li) {
     var a = li.querySelector(':scope > a');
     if (!a) return;
+    
+    // Prevent navigation on parent link, just toggle dropdown
     a.addEventListener('click', function (e) {
       e.preventDefault();
+      e.stopPropagation();
+      
+      // Close other dropdowns
       ddParents.forEach(function (other) {
         if (other !== li) other.classList.remove('open');
       });
+      
+      // Toggle current dropdown
       li.classList.toggle('open');
-      console.log('Dropdown toggled, has open class:', li.classList.contains('open'));
+      console.log('Dropdown toggled, open class:', li.classList.contains('open'));
     });
+    
+    // Handle dropdown item clicks - allow them to navigate normally
+    var dropdown = li.querySelector('.dropdown');
+    if (dropdown) {
+      var dropdownItems = dropdown.querySelectorAll('a');
+      dropdownItems.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+          console.log('Dropdown item clicked:', item.href);
+          // Don't prevent default - let the link navigate
+          // Just close the dropdown
+          li.classList.remove('open');
+          // Allow the click to proceed naturally
+        });
+      });
+    }
   });
 
+  // Close dropdowns when clicking outside
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('.nav-links')) {
+    // Check if click is outside nav-links
+    var clickedInNav = e.target.closest('.nav-links');
+    if (!clickedInNav) {
       ddParents.forEach(function (li) {
         li.classList.remove('open');
       });

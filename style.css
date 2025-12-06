@@ -725,10 +725,29 @@ p{
     box-sizing: border-box;
     transition: opacity .18s ease, transform .18s ease;
     transform-origin: top left;
+    pointer-events: none;
+}
+
+/* Show on hover (desktop) */
+.nav-links ul li.has-dropdown:hover > .dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(6px);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Show when toggled via JS (click) */
+.nav-links ul li.has-dropdown.open > .dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(6px);
+    visibility: visible;
+    pointer-events: auto;
 }
 
 /* Dropdown items */
-.nav-links ul li .dropdown li { width: 100%; }
+.nav-links ul li .dropdown li { width: 100%; pointer-events: auto; }
 .nav-links ul li .dropdown a {
     display: block;
     padding: 10px 14px;
@@ -738,25 +757,10 @@ p{
     white-space: nowrap;
     border-radius: 6px;
     text-align: center; /* center dropdown text horizontally */
+    pointer-events: auto;
 }
 .nav-links ul li .dropdown a:hover {
     background: rgba(15,23,42,0.04);
-}
-
-/* Show on hover (desktop) */
-.nav-links ul li.has-dropdown:hover > .dropdown {
-    display: block;
-    opacity: 1;
-    transform: translateY(6px);
-    visibility: visible;
-}
-
-/* Show when toggled via JS (click) */
-.nav-links ul li.has-dropdown.open > .dropdown {
-    display: block;
-    opacity: 1;
-    transform: translateY(6px);
-    visibility: visible;
 }
 
 /* If dropdown is near the right edge (last one or last two items), anchor to the right so it opens leftwards */

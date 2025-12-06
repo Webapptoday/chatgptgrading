@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduce Yourself | YouMatter Forum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        .content-section {
+            width: 100%;
+            background: #ffffff;
+            padding: 60px 20px 80px;
+        }
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1f2937;
+        }
+
+        .thread-header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #1f2937;
+        }
+
+        .thread-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .thread-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: #0d2b57;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+        .thread-title-row h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0d2b57;
+        }
+        .thread-sub {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .thread-shell {
+            background: #f9fafb;
+            border-radius: 14px;
+            padding: 20px 20px 24px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* form */
+        .post-form-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #1f2937;
+        }
+        #post-text {
+            width: 100%;
+            min-height: 110px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            padding: 10px 12px;
+            resize: vertical;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: #1f2937;
+        }
+        #post-text:focus {
+            outline: 2px solid #0d2b57;
+            outline-offset: 1px;
+        }
+        .post-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+        #post-btn {
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: none;
+            background: #0d2b57;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        #post-btn:hover {
+            filter: brightness(1.05);
+        }
+
+        /* messages list */
+        .messages-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message-empty {
+            font-size: 0.88rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+        .message-card {
+            display: flex;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+        }
+        .message-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            background: #0d2b57;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .message-body {
+            flex: 1;
+        }
+        .message-meta {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        .message-text {
+            font-size: 0.9rem;
+            color: #1f2937;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER / NAV -->
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="about-youmatter.html">About You Matter</a></li>
+                            <li><a href="about-who-we-are.html">Who We Are</a></li>
+                            <li><a href="about-why-we-started.html">Why We Started</a></li>
+                            <li><a href="about-what-we-do.html">What We Do</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="course.html">SERVICES <i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="disorders.html">Disorders</a></li>
+                            <li><a href="appointment.html">Appointment</a></li>
+                            <li><a href="check-in.html">Check-in</a></li>
+                            <li><a href="get-help.html">Get Help</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="testimonials.html">TESTIMONIALS</a></li>
+                    <li><a href="forums.html">FORUMS</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Introduce Yourself</h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="thread-header">
+                <a href="forums.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Forums</span>
+                </a>
+
+                <div class="thread-title-row">
+                    <div class="thread-badge">E</div>
+                    <h1>A bit about me and my experience…</h1>
+                </div>
+                <p class="thread-sub">
+                    Share a short introduction about who you are, what brings you here, or anything you feel comfortable sharing.
+                </p>
+            </div>
+
+            <div class="thread-shell">
+                <label for="post-text" class="post-form-label">Write your message:</label>
+                <textarea id="post-text" placeholder="Type a few sentences about yourself..."></textarea>
+                <div class="post-actions">
+                    <button id="post-btn" type="button">Post Message</button>
+                </div>
+
+                <div id="messages" class="messages-list">
+                    <p class="message-empty">No messages yet. Your introduction will appear here after you post.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Built with purpose.</p>
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+    </section>
+
+    <script src="menu.js"></script>
+    <script>
+        // simple client-side "post" logic: user sees their own messages
+        const postBtn = document.getElementById('post-btn');
+        const postText = document.getElementById('post-text');
+        const messages = document.getElementById('messages');
+
+        function addMessage(text) {
+            // remove empty state if present
+            const empty = messages.querySelector('.message-empty');
+            if (empty) empty.remove();
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'message-card';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = 'Y'; // for "You"
+
+            const body = document.createElement('div');
+            body.className = 'message-body';
+
+            const meta = document.createElement('div');
+            meta.className = 'message-meta';
+            const now = new Date();
+            meta.textContent = `You · ${now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}`;
+
+            const msgText = document.createElement('div');
+            msgText.className = 'message-text';
+            msgText.textContent = text;
+
+            body.appendChild(meta);
+            body.appendChild(msgText);
+
+            wrapper.appendChild(avatar);
+            wrapper.appendChild(body);
+
+            messages.appendChild(wrapper);
+        }
+
+        postBtn.addEventListener('click', () => {
+            const val = postText.value.trim();
+            if (!val) return;
+            addMessage(val);
+            postText.value = '';
+            postText.focus();
+        });
+    </script>
+</body>
+</html>

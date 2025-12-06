@@ -21,6 +21,19 @@
         clip-path: polygon(55% 0, 100% 0, 100% 100%, 35% 100%);
         opacity: 0.96;
         z-index: 0;
+        pointer-events: none;
+      }
+
+      /* left-side background image diagonal panel */
+      .header.hero-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("images/background.png") center / cover no-repeat;
+        clip-path: polygon(0 0, 55% 0, 35% 100%, 0 100%);
+        opacity: 0.96;
+        z-index: 0;
+        pointer-events: none;
       }
 
       /* Reduce background image opacity */
@@ -36,7 +49,11 @@
       .hero-header nav,
       .hero-header .text-box {
         position: relative;
-        z-index: 1;
+        z-index: 10;
+      }
+
+      .hero-header nav {
+        z-index: 100;
       }
 
       /* keep nav text readable on top of image/grey */
@@ -146,11 +163,12 @@
                             <li><a href="disorders.html">Disorders</a></li>
                             <li><a href="appointment.html">Appointment</a></li>
                             <li><a href="check-in.html">Check-in</a></li>
-                            <li><a href="index.html">Contact Us</a></li>
+                            <li><a href="gethelp.html">Get Help</a></li>
                         </ul>
                     </li>
                     <li><a href="blog.html">BLOG</a></li>
                     <li><a href="testimonials.html">TESTIMONIALS</a></li>
+                    <li><a href="forums.html">FORUMS</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -251,6 +269,13 @@
                     <h4>Wellness Tips</h4>
                     <p>Get practical advice and self-care strategies.</p>
                     <a href="blog.html" aria-label="Explore wellness tips and self-care strategies">Explore →</a>
+                </article>
+
+                <article class="quick-link-card">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                    <h4>Get Help</h4>
+                    <p>Access support resources and find guidance for your mental health journey.</p>
+                    <a href="get-help.html" aria-label="Access mental health support resources">Get Support →</a>
                 </article>
             </div>
         </section>

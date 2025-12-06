@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Help | YouMatter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        .content-section {
+            width: 100%;
+            background: #f7fafc;
+            padding: 60px 20px 70px;
+        }
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ====== CRISIS HERO SECTION ====== */
+        .gethelp-hero {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 48px;
+            background: #fff6e9;
+            border-radius: 26px;
+            padding: 40px 48px;
+            box-shadow: 0 12px 30px rgba(13, 43, 87, 0.12);
+        }
+
+        @media (max-width: 900px) {
+            .gethelp-hero {
+                grid-template-columns: 1fr;
+                padding: 32px 24px;
+            }
+        }
+
+        .gethelp-hero-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 12px;
+        }
+
+        .gethelp-hero-text h2 span {
+            color: #000000;
+        }
+
+        .gethelp-hero-subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .gethelp-hero-text p {
+            color: #000000;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .gethelp-highlight {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .gethelp-hero-image img {
+            width: 100%;
+            height: 300px;
+            border-radius: 22px;
+            object-fit: cover;
+            box-shadow: 0 12px 30px rgba(13, 43, 87, 0.16);
+        }
+
+        /* CTA SECTION */
+        .gethelp-cta {
+            margin-top: 20px;
+            padding: 22px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #e3f2ff, #ffe7f1);
+            border: 1px solid rgba(13, 43, 87, 0.08);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .gethelp-cta p {
+            margin: 0;
+            font-size: 0.98rem;
+            color: #000000;
+            max-width: 620px;
+        }
+
+        .gethelp-cta a {
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: #0d2b57;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.35);
+        }
+
+        .gethelp-cta a:hover {
+            filter: brightness(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / NAV -->
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="about-youmatter.html">About You Matter</a></li>
+                            <li><a href="about-who-we-are.html">Who We Are</a></li>
+                            <li><a href="about-why-we-started.html">Why We Started</a></li>
+                            <li><a href="about-what-we-do.html">What We Do</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="course.html">SERVICES <i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="disorders.html">Disorders</a></li>
+                            <li><a href="appointment.html">Appointment</a></li>
+                            <li><a href="check-in.html">Check-in</a></li>
+                            <li><a href="gethelp.html" aria-current="page">Get Help</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="testimonials.html">TESTIMONIALS</a></li>
+                    <li><a href="forums.html">FORUMS</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Get Help</h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="content-section">
+        <div class="content-container">
+
+            <!-- YELLOW HERO SECTION -->
+            <div class="gethelp-hero">
+                <div class="gethelp-hero-text">
+                    <h2><span>In crisis?</span> 24/7 help is available.</h2>
+                    <p class="gethelp-hero-subtitle">
+                        If you’re feeling unsafe, overwhelmed, or like you might hurt yourself, you do not have to handle it alone.
+                    </p>
+                    <p>
+                        <span class="gethelp-highlight">Call or text 988</span> or chat via 
+                        <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>.
+                    </p>
+                    <p>You can also text <strong>HOME</strong> to <strong>741741</strong>.</p>
+                    <p>If you are in <strong>immediate danger</strong>, call <strong>911</strong> right away.</p>
+
+                    <p style="font-size:0.9rem;color:#718096;margin-top:8px;">
+                        These services are free, confidential, and available 24/7.
+                    </p>
+                </div>
+
+                <div class="gethelp-hero-image">
+                    <img src="images/mancalling.png" alt="crisis hotline image">
+                </div>
+            </div>
+
+            <!-- CTA BUTTON -->
+            <div class="gethelp-cta">
+                <p>YouMatter can help you understand what you're feeling and take your next step toward support.</p>
+                <a href="check-in.html">Go to Mental Health Check-in</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Built with purpose.</p>
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+    </section>
+
+    <script src="menu.js"></script>
+</body>
+</html>

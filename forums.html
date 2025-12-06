@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forums | YouMatter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        .content-section {
+            width: 100%;
+            background: #ffffff;
+            padding: 60px 20px 80px;
+        }
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1f2937;
+        }
+
+        .forum-header-main h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #0d2b57;
+            margin-bottom: 6px;
+        }
+        .forum-header-main p {
+            margin: 0 0 24px;
+            font-size: 0.98rem;
+            color: #4a5568;
+        }
+
+        .forum-shell {
+            background: #f9fafb;
+            border-radius: 14px;
+            padding: 24px 24px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .forum-rules-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            text-decoration: none;
+            color: #2563eb;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+        .forum-rules-link:hover {
+            background: #f3f4f6;
+        }
+        .forum-rules-icon {
+            width: 26px;
+            height: 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .forum-board-header {
+            background: #0d2b57;
+            border-radius: 10px 10px 0 0;
+            padding: 14px 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .forum-row {
+            background: #ffffff;
+            border-radius: 0 0 10px 10px;
+            padding: 18px 18px 20px;
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) auto auto;
+            column-gap: 26px;
+            row-gap: 16px;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+        }
+
+        .forum-topic-main {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .forum-topic-icon {
+            font-size: 1.4rem;
+            margin-top: 4px;
+            color: #0d2b57;
+        }
+        .forum-topic-text h2 {
+            margin: 0 0 4px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0d2b57;
+        }
+        .forum-topic-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .forum-metrics {
+            text-align: right;
+            font-size: 0.82rem;
+            color: #6b7280;
+            min-width: 80px;
+        }
+        .forum-metrics div {
+            margin-bottom: 4px;
+        }
+        .metric-label {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.72rem;
+            color: #6b7280;
+        }
+        .metric-value {
+            font-weight: 600;
+            color: #0d2b57;
+        }
+
+        /* make the whole right-hand "latest" side clickable */
+        .forum-latest-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .forum-latest {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 210px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .forum-latest:hover {
+            background: #0b1120;
+            transform: translateY(-1px);
+        }
+        .avatar-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #022c22;
+        }
+        .latest-text-title {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #60a5fa;
+            margin-bottom: 2px;
+        }
+        .latest-meta {
+            font-size: 0.78rem;
+            color: #9ca3af;
+        }
+
+        .forum-rules-card {
+            margin-top: 32px;
+            background: #020617;
+            border-radius: 14px;
+            padding: 22px 22px 24px;
+            border: 1px solid #1f2937;
+        }
+        .forum-rules-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #f9fafb;
+        }
+        .forum-rules-card p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+        .forum-rules-card ol {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            color: #d1d5db;
+        }
+        .forum-rules-card li + li {
+            margin-top: 8px;
+        }
+        .forum-rules-card strong {
+            color: #f9fafb;
+        }
+
+        @media (max-width: 900px) {
+            .forum-row {
+                grid-template-columns: minmax(0, 1fr);
+                row-gap: 14px;
+            }
+            .forum-metrics {
+                text-align: left;
+                display: flex;
+                gap: 20px;
+            }
+            .forum-latest {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / NAV -->
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="about-youmatter.html">About You Matter</a></li>
+                            <li><a href="about-who-we-are.html">Who We Are</a></li>
+                            <li><a href="about-why-we-started.html">Why We Started</a></li>
+                            <li><a href="about-what-we-do.html">What We Do</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="course.html">SERVICES <i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="disorders.html">Disorders</a></li>
+                            <li><a href="appointment.html">Appointment</a></li>
+                            <li><a href="check-in.html">Check-in</a></li>
+                            <li><a href="get-help.html">Get Help</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="testimonials.html">TESTIMONIALS</a></li>
+                    <li><a href="forums.html" aria-current="page">FORUMS</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Forums</h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="forum-header-main">
+                <h1>Mental Health Forum</h1>
+                <p>A safe, supportive space to share experiences, ask questions, and connect with others on their mental health journey.</p>
+            </div>
+
+            <div class="forum-shell">
+                <a href="#forum-rules" class="forum-rules-link">
+                    <span class="forum-rules-icon">
+                        <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                    </span>
+                    <span>Forum Rules</span>
+                </a>
+
+                <div class="forum-board-header">
+                    Mental Health Support Forums
+                </div>
+
+                <div class="forum-row">
+                    <div class="forum-topic-main">
+                        <div class="forum-topic-icon">
+                            <i class="fa-regular fa-comments" aria-hidden="true"></i>
+                        </div>
+                        <div class="forum-topic-text">
+                            <h2>Introduce Yourself</h2>
+                            <p>New to the YouMatter community? Share a little about who you are and what brought you here.</p>
+                        </div>
+                    </div>
+
+                    <div class="forum-metrics">
+                        <div>
+                            <span class="metric-label">Threads</span>
+                            <span class="metric-value">23.3K</span>
+                        </div>
+                        <div>
+                            <span class="metric-label">Messages</span>
+                            <span class="metric-value">185K</span>
+                        </div>
+                    </div>
+
+                    <!-- whole right side is clickable -->
+                    <a href="thread-introduce-yourself.html" class="forum-latest-link">
+                        <div class="forum-latest">
+                            <div class="avatar-circle">E</div>
+                            <div>
+                                <div class="latest-text-title">A bit about me and my experience…</div>
+                                <span class="latest-meta">Today at 9:33 PM · EchoShade</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <section id="forum-rules" class="forum-rules-card">
+                <h3>Forum Rules and Guidelines</h3>
+                <p>To keep this a safe and supportive space, please follow these core principles whenever you post or reply.</p>
+                <ol>
+                    <li><strong>Respect Everyone:</strong> Treat all members with courtesy. Personal attacks, harassment, hate speech, and impersonation are not allowed.</li>
+                    <li><strong>Remain Supportive:</strong> This is a space for support, not harm. Do not post content that could endanger yourself or others.</li>
+                    <li><strong>Protect Privacy:</strong> Do not share personal identifying details about yourself or anyone else (full names, addresses, phone numbers, etc.).</li>
+                </ol>
+            </section>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Built with purpose.</p>
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+    </section>
+
+    <script src="menu.js"></script>
+</body>
+</html>
