@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Global site assets -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mental Health Conditions</title>
@@ -12,18 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-  <!-- Page-scoped styles (prefixed with .mha- to avoid collisions) -->
   <style>
     :root{
-      --mha-navy:#0d2b57;         /* headings */
-      --mha-ink:#0e1a2b;          /* body text */
-      --mha-muted:#6a7a8f;        /* muted text */
-      --mha-cream:#fff6ea;        /* banner bg */
-      --mha-bg:#f7fafc;           /* page bg */
-      --mha-card:#ffffff;         /* card base */
-      --mha-soft:#e8eff8;         /* card divider */
-      --mha-accent:#ff8c3a;       /* tiny underline accent */
-      --mha-radius:18px;
+      --mha-navy:#0d2b57;
+      --mha-ink:#0e1a2b;
+      --mha-cream:#fff6ea;
+      --mha-bg:#f7fafc;
+      --mha-card:#ffffff;
+      --mha-soft:#e8eff8;
+      --mha-accent:#ff8c3a;
       --mha-shadow:0 10px 28px rgba(15,40,80,.10);
       --mha-maxw:1180px;
     }
@@ -33,97 +29,79 @@
 
     .mha-wrap{max-width:var(--mha-maxw);margin:0 auto;padding:28px 20px}
 
-    /* ---------- HOME GRID ---------- */
-    #mhaHome{display:block}
+    /* LIST VIEW (cards) */
     .mha-grid{
       display:grid;gap:22px;
       grid-template-columns:repeat(4,minmax(0,1fr));
     }
-
     .mha-card{
-      border-radius:26px;background:var(--mha-card);box-shadow:var(--mha-shadow);overflow:hidden;border:1px solid rgba(13,43,87,.06)
+      border-radius:26px;background:var(--mha-card);box-shadow:var(--mha-shadow);
+      overflow:hidden;border:1px solid rgba(13,43,87,.06);
+      cursor:pointer;
+      transition:transform .08s ease, box-shadow .08s ease;
     }
-    .mha-top{
-      height:180px;display:flex;align-items:center;justify-content:center;
-      color:#fff;font-size:42px;font-weight:800;
-      background:linear-gradient(140deg,#7898ff,#3f68ff);
-      background-size:cover;background-position:center;
-    }
-    /* Make the anxiety card image fill the header area and crop as needed so
-       only the image shows (no gradient/background visible). */
-    .mha-top--anxiety{background:none;background-color:transparent}
-    .mha-top img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* fill and crop to the header box */
-      display: block;
-    }
-
-    /* Swap these with real photos if you have them */
-    .mha-top--anxiety{background:linear-gradient(140deg,#5ac6ff,#2c86ff)}
-    .mha-top--ocd{background:linear-gradient(140deg,#34d399,#10b981)}
-    .mha-top--depression{background:linear-gradient(140deg,#2f3a52,#6b7a99)}
-    .mha-top--adhd{background:linear-gradient(140deg,#f97316,#fb7185)}
-    .mha-top--ptsd{background:linear-gradient(140deg,#60a5fa,#3b82f6)}
-    .mha-top--bipolar{background:linear-gradient(140deg,#ffad66,#ff6fb1)}
-    .mha-top--eating{background:linear-gradient(140deg,#ffb94d,#f772b0)}
-    .mha-top--suicide{background:linear-gradient(140deg,#2c4a86,#46659f)}
-    .mha-top--cooccurring{background:linear-gradient(140deg,#8652ff,#ff6fb1)}
-    .mha-top--mood{background:linear-gradient(140deg,#3a3f87,#db76ff)}
-
-    /* Override: for cards that should show a real photo, remove the gradient
-       so the image can sit edge-to-edge and fill the header. */
-    .mha-top--anxiety,
-    .mha-top--ocd,
-    .mha-top--depression,
-    .mha-top--adhd,
-    .mha-top--ptsd,
-    .mha-top--bipolar,
-    .mha-top--eating,
-    .mha-top--suicide,
-    .mha-top--cooccurring,
-    .mha-top--mood{
-      background: none;
-      background-color: transparent;
-    }
-
+    .mha-card:hover{transform:translateY(-2px)}
+    .mha-top{height:180px;display:flex;align-items:center;justify-content:center}
+    .mha-top img{width:100%;height:100%;object-fit:cover;display:block}
     .mha-bottom{
       padding:18px 18px 16px;background:linear-gradient(180deg,#f2f6ff, #eef3fb);
       border-top:1px solid var(--mha-soft); min-height:168px;
     }
     .mha-title{font-size:1.15rem;margin:0 0 6px;color:var(--mha-navy);font-weight:800}
     .mha-snippet{margin:0 0 16px;color:var(--mha-ink);opacity:.85;line-height:1.5}
-    .mha-more{display:inline-flex;align-items:center;gap:8px;color:var(--mha-navy);text-decoration:none;font-weight:700}
+    .mha-more{display:inline-flex;align-items:center;gap:8px;color:var(--mha-navy);font-weight:700}
     .mha-more::after{content:"";display:block;height:4px;width:42px;background:var(--mha-accent);border-radius:6px;margin-left:8px;opacity:.95}
 
-    .mha-card button.mha-open{appearance:none;background:none;border:0;padding:0;margin:0;width:100%;text-align:left;cursor:pointer}
+    /* VIEWS (FIXED) */
+    .mha-list{display:block}
+    .mha-detail{display:none}
+    .mha-list.hidden{display:none}
+    .mha-detail.active{display:block}
 
-    /* ---------- DETAIL PAGE ---------- */
-    #mhaDetail{display:none}
-    .mha-banner{
-      border-radius:22px;background:var(--mha-cream);padding:18px 20px;margin-bottom:16px;border:1px solid rgba(13,43,87,.06)
+    /* DETAIL VIEW */
+    .detail-banner{
+      border-radius:22px;background:var(--mha-cream);
+      padding:18px 20px;margin-bottom:16px;
+      border:1px solid rgba(13,43,87,.06)
     }
-    .mha-breadcrumb{
-      font-size:.95rem;color:var(--mha-navy);opacity:.9;display:flex;gap:8px;align-items:center;flex-wrap:wrap
+    .back-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:#fff;border:1px solid rgba(13,43,87,.12);
+      padding:10px 14px;border-radius:12px;
+      color:var(--mha-navy);font-weight:800;
+      cursor:pointer;
     }
-    .mha-back{
-      display:inline-flex;align-items:center;gap:8px;margin-bottom:6px;color:var(--mha-navy);text-decoration:none;font-weight:700
-    }
-    .mha-title-lg{font-size:2.2rem;margin:6px 0 0;color:var(--mha-navy);font-weight:800}
-    .mha-content{
-      background:var(--mha-card);border-radius:22px;padding:22px;box-shadow:var(--mha-shadow);border:1px solid rgba(13,43,87,.06)
-    }
-    .mha-content h2, .mha-content h3{color:var(--mha-navy);margin:14px 0 8px}
-    .mha-content p{color:var(--mha-ink);line-height:1.9;margin:10px 0}
-    .mha-content ul{margin:10px 0 18px 22px}
-    .mha-content li{margin:6px 0;line-height:1.75}
+    .detail-title{font-size:2.05rem;margin:10px 0 0;color:var(--mha-navy);font-weight:900}
 
-    /* Utilities */
-    .sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    .detail-content{
+      background:var(--mha-card);border-radius:22px;padding:22px;
+      box-shadow:var(--mha-shadow);
+      border:1px solid rgba(13,43,87,.06)
+    }
+    .detail-content h3,.detail-content h4{color:var(--mha-navy);margin:14px 0 8px}
+    .detail-content p{color:var(--mha-ink);line-height:1.9;margin:10px 0}
+    .detail-content ul{margin:10px 0 18px 22px}
+    .detail-content li{margin:6px 0;line-height:1.75}
+    .hero-img{width:100%;max-width:760px;margin:0 auto 18px;display:block;border-radius:14px}
+
+    .note{
+      background:#f2f6ff;border:1px solid rgba(13,43,87,.10);
+      border-radius:16px;padding:14px 16px;margin:16px 0
+    }
+    .note strong{color:var(--mha-navy)}
+
+    @media (max-width: 1100px){
+      .mha-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width: 560px){
+      .mha-grid{grid-template-columns:1fr}
+      .detail-title{font-size:1.7rem}
+    }
   </style>
 </head>
+
 <body>
-  <!-- Keep your site header/nav -->
+  <!-- Your existing header/nav -->
   <section class="sub-header">
     <nav>
       <a href="index.html"><img src="images/logo.png" alt="Site logo"></a>
@@ -159,161 +137,111 @@
     <h1>Mental Health Conditions</h1>
   </section>
 
-  <!-- Page body -->
   <section class="Services">
     <div class="mha-wrap">
 
-      <!-- HOME: card grid (RE-ORDERED) -->
-      <div id="mhaHome" aria-labelledby="mhaHomeTitle">
-        <h2 id="mhaHomeTitle" class="sr-only">Browse conditions</h2>
+      <!-- LIST VIEW -->
+      <div id="listView" class="mha-list">
         <div class="mha-grid" role="list">
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="anxiety" aria-label="Open Anxiety Disorders">
-              <div class="mha-top mha-top--anxiety" aria-hidden="true"><img src="images/anxiety.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Anxiety Disorders</h3>
-                <p class="mha-snippet">When worry becomes constant and feels like it's steering your day.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+
+          <article class="mha-card" role="listitem" onclick="openDisorder('anxiety')">
+            <div class="mha-top" aria-hidden="true"><img src="images/anxiety.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">Anxiety Disorders</h3>
+              <p class="mha-snippet">When worry becomes constant and feels like it's steering your day.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="ocd" aria-label="Open OCD">
-              <div class="mha-top mha-top--ocd" aria-hidden="true"><img src="images/ocd.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">OCD</h3>
-                <p class="mha-snippet">Intrusive thoughts and "must-do" rituals that crowd out daily life.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('ocd')">
+            <div class="mha-top" aria-hidden="true"><img src="images/ocd.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">OCD</h3>
+              <p class="mha-snippet">Intrusive thoughts and “must-do” rituals that crowd out daily life.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="depression" aria-label="Open Depression">
-              <div class="mha-top mha-top--depression" aria-hidden="true"><img src="images/Depression.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Depression</h3>
-                <p class="mha-snippet">More than sadness: it reshapes energy, sleep, and motivation.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('depression')">
+            <div class="mha-top" aria-hidden="true"><img src="images/Depression.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">Depression</h3>
+              <p class="mha-snippet">More than sadness: it affects energy, sleep, and motivation.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="adhd" aria-label="Open ADD and ADHD">
-              <div class="mha-top mha-top--adhd" aria-hidden="true"><img src="images/adhd.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">ADD and ADHD</h3>
-                <p class="mha-snippet">Attention, impulse, and activity patterns that affect daily tasks.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('adhd')">
+            <div class="mha-top" aria-hidden="true"><img src="images/adhd.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">ADD and ADHD</h3>
+              <p class="mha-snippet">Attention, impulse, and activity patterns that affect daily life.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="ptsd" aria-label="Open PTSD">
-              <div class="mha-top mha-top--ptsd" aria-hidden="true"><img src="images/ptsd.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">PTSD</h3>
-                <p class="mha-snippet">After trauma, reminders can feel like reliving it in the present.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('ptsd')">
+            <div class="mha-top" aria-hidden="true"><img src="images/ptsd.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">PTSD</h3>
+              <p class="mha-snippet">After trauma, reminders can feel like reliving it in the present.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="bipolar" aria-label="Open Bipolar Disorder">
-              <div class="mha-top mha-top--bipolar" aria-hidden="true"><img src="images/bipolar.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Bipolar Disorder</h3>
-                <p class="mha-snippet">Distinct mood shifts that change pace, energy, and judgment.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('bipolar')">
+            <div class="mha-top" aria-hidden="true"><img src="images/bipolar.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">Bipolar Disorder</h3>
+              <p class="mha-snippet">Distinct mood shifts that affect pace, energy, and judgment.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="eating" aria-label="Open Eating Disorders">
-              <div class="mha-top mha-top--eating" aria-hidden="true"><img src="images/eatingdisorders.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Eating Disorders</h3>
-                <p class="mha-snippet">Serious conditions that affect health, emotions, and relationships.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('eating')">
+            <div class="mha-top" aria-hidden="true"><img src="images/eatingdisorders.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">Eating Disorders</h3>
+              <p class="mha-snippet">Serious conditions affecting health, emotions, and relationships.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="suicide" aria-label="Open Suicide information">
-              <div class="mha-top mha-top--suicide" aria-hidden="true"><img src="images/suicide.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Suicide</h3>
-                <p class="mha-snippet">If you or someone you know is in crisis, help is available now.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('suicide')">
+            <div class="mha-top" aria-hidden="true"><img src="images/suicide.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">Suicide</h3>
+              <p class="mha-snippet">If you or someone you know is in crisis, help is available now.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
 
-          <article class="mha-card" role="listitem">
-            <button class="mha-open" data-key="cooccurring" aria-label="Open Co-occurring: Mental Health and Substance Use">
-              <div class="mha-top mha-top--cooccurring" aria-hidden="true"><img src="images/conditions.png" alt="" aria-hidden="true"></div>
-              <div class="mha-bottom">
-                <h3 class="mha-title">Co-occurring Conditions</h3>
-                <p class="mha-snippet">When substance use and mental health challenges happen together.</p>
-                <span class="mha-more">Learn more</span>
-              </div>
-            </button>
+          <article class="mha-card" role="listitem" onclick="openDisorder('cooccurring')">
+            <div class="mha-top" aria-hidden="true"><img src="images/conditions.png" alt=""></div>
+            <div class="mha-bottom">
+              <h3 class="mha-title">Co-occurring Conditions</h3>
+              <p class="mha-snippet">When substance use and mental health challenges happen together.</p>
+              <span class="mha-more">Learn more</span>
+            </div>
           </article>
+
         </div>
       </div>
 
-      <!-- DETAIL: banner + big title + content -->
-      <div id="mhaDetail" aria-live="polite" aria-labelledby="mhaDetailTitle">
-        <div class="mha-banner">
-          <a href="#" id="mhaBack" class="mha-back"><i class="fa fa-angle-left"></i> Back to All</a>
-          <div class="mha-breadcrumb"><a href="index.html" style="text-decoration:none;color:inherit">Home</a> / <span>Mental Health Conditions</span> / <span id="mhaCrumb">Condition</span></div>
-          <h1 id="mhaDetailTitle" class="mha-title-lg">Condition</h1>
-        </div>
+      <!-- DETAIL VIEW -->
+      <div id="detailView" class="mha-detail">
 
-        <article class="mha-content" id="mhaDetailBody">
-          <!-- JS injects the selected condition's HTML here -->
-        </article>
-      </div>
+        <!-- Anxiety -->
+        <section id="detail-anxiety" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Anxiety Disorders</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/anxiety.png" alt="Anxiety Disorders">
 
-    </div>
-  </section>
+            <p><strong>Anxiety Disorder</strong> is a mental health condition that can cause constant fear or worry about stressful situations.</p>
 
-  <!-- Site footer -->
-    <section class="footer">
-        <h4>About Us</h4>
-        <p>Built with purpose.</p>
-        <div class="icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-        </div>
-        <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
-    </section>  <!-- Keep your mobile menu script -->
-  <script src="menu.js"></script>
-
-  <!-- Page logic: cards -> detail page with breadcrumb + back; supports deep links -->
-  <script>
-    (function(){
-      const home   = document.getElementById('mhaHome');
-      const detail = document.getElementById('mhaDetail');
-      const crumb  = document.getElementById('mhaCrumb');
-      const title  = document.getElementById('mhaDetailTitle');
-      const body   = document.getElementById('mhaDetailBody');
-
-      // Long-form, paragraph-first content (minimal lists; generous spacing)
-      const PAGES = {
-        anxiety:{
-          title:"Anxiety Disorders",
-          html:`
-            <img src="images/anxiety.png" alt="Anxiety Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Anxiety Disorder is a mental health condition that causes constant fear or worry about stressful situations.</p>
             <h4>Some symptoms of anxiety include:</h4>
             <ul>
               <li>Pounding heart</li>
@@ -322,303 +250,486 @@
               <li>Shortness of breath</li>
               <li>Sweating</li>
               <li>Regular numbness in the hands or feet</li>
-              <li>Insomnia or Trouble falling asleep</li>
+              <li>Insomnia or trouble falling asleep</li>
               <li>Muscle tension</li>
               <li>Trouble concentrating</li>
               <li>Easily irritable</li>
               <li>Constant sense of panic and uneasiness</li>
             </ul>
-            <p>Moreover, anxiety can be beneficial, helping people notice dangerous situations quicker than others.</p>
+
+            <p>Sometimes anxiety can be helpful by making people more alert in situations that feel dangerous.</p>
+
             <h4>Some types of anxiety disorders include:</h4>
-            <p><strong>GAD (Generalized Anxiety Disorder):</strong> A condition marked by a constant sensation of feeling overwhelmed, like worrying about everyday things, such as taking care of your children.</p>
-            <p><strong>Agoraphobia:</strong> A condition marked by intense fear of becoming overwhelmed, causes many people to avoid things such as new places or open, spacious areas.</p>
-            <p><strong>Selective Mutism:</strong> A condition where you have intense fear or anxiety, making you unable to speak in certain situations. This affects a lot of young children, but it can also affect adults.</p>
-            <h4>Anxiety does many things to people's bodies, including:</h4>
+            <p><strong>GAD (Generalized Anxiety Disorder):</strong> Constant worry about everyday things, even when there’s no clear reason.</p>
+            <p><strong>Agoraphobia:</strong> Fear of situations that feel hard to escape or overwhelming (like crowded places or wide open spaces).</p>
+            <p><strong>Selective mutism:</strong> Anxiety that makes speaking feel impossible in certain situations.</p>
+
+            <h4>Anxiety can affect the body in many ways, including:</h4>
             <ul>
-              <li>Impeding their ability to function properly</li>
-              <li>Causing many to overreact</li>
-              <li>Making them unable to control their responses in specific scenarios</li>
+              <li>Impeding your ability to function properly</li>
+              <li>Overreacting to situations</li>
+              <li>Feeling unable to control responses in specific scenarios</li>
               <li>Racing thoughts</li>
               <li>Restlessness</li>
               <li>Increased heart rate</li>
             </ul>
+
             <h4>Treatments for anxiety:</h4>
             <ul>
-              <li>Stress management techniques like meditation, breathing exercises (box method), and mindfulness</li>
-              <li>Participate in support groups for people with anxiety, providing an opportunity for you to relate with others going through similar mental battles, in comparison to you</li>
-              <li>Learn more about your condition and spread awareness/knowledge regarding this disability, so people around you can better understand this condition</li>
-              <li>Limiting or avoiding caffeine can help improve your anxiety, as it blocks a brain chemical that promotes relaxation</li>
-              <li>Talk to your healthcare provider for treatment options and to better understand your condition</li>
+              <li>Stress management techniques (meditation, breathing exercises like the box method, mindfulness)</li>
+              <li>Support groups</li>
+              <li>Learning more about the condition</li>
+              <li>Limiting or avoiding caffeine</li>
+              <li>Talking to a healthcare provider about treatment options</li>
             </ul>
-            <p>The most direct cause of anxiety disorders is genetics or traits passed down from parent to child. One interesting fact about anxiety is that women are about twice as likely as men to have it. Another one is that social anxiety disorder affects about 7% of the U.S. population.</p>
-          `
-        },
-        ocd:{
-          title:"Obsessive-Compulsive Disorder (OCD)",
-          html:`
-            <img src="images/ocd.png" alt="OCD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>OCD, or Obsessive-compulsive disorder, is a mental illness marked by unwanted thoughts and fears about day-to-day life.</p>
-            <h4>Common features associated with OCD include:</h4>
+          </article>
+        </section>
+
+        <!-- OCD -->
+        <section id="detail-ocd" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Obsessive-Compulsive Disorder (OCD)</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/ocd.png" alt="OCD">
+
+            <p>
+              <strong>Obsessive-Compulsive Disorder (OCD)</strong> is a mental health condition where a person experiences
+              repeated, unwanted thoughts (<strong>obsessions</strong>) and feels driven to do certain actions or rituals
+              (<strong>compulsions</strong>) to reduce anxiety or to feel “safe.”
+            </p>
+
+            <div class="note">
+              <strong>Important:</strong> People with OCD usually don’t want these thoughts or rituals — it can feel like the brain is stuck in a “danger alarm” loop.
+            </div>
+
+            <h4>Obsessions can look like:</h4>
             <ul>
-              <li>Self-doubt</li>
-              <li>Having a hard time dealing with uncertainty</li>
-              <li>Constant unwanted thoughts regarding losing control and committing self-harm or harm to others</li>
-              <li>Need to follow a strict routine</li>
-              <li>Demanding reassurance</li>
+              <li>Fear of germs, contamination, or getting sick</li>
+              <li>Worry that something bad will happen unless things are “just right”</li>
+              <li>Fear of making a mistake that harms someone</li>
+              <li>Thoughts that repeat even when you try to ignore them</li>
             </ul>
-            <h4>Examples of OCD include:</h4>
+
+            <h4>Compulsions can look like:</h4>
             <ul>
-              <li>Being afraid of contamination by touching certain objects or dirt</li>
-              <li>Confusion regarding whether you have locked the door or closed your windows before leaving</li>
-              <li>The need to have objects arranged in a certain order</li>
-              <li>Vivid images of cruel things, like being in a car crash that killed many</li>
-              <li>Doubt regarding how to act in public</li>
-              <li>Weird Sexual Thoughts</li>
-              <li>Wanting to stay away from scenarios that can cause obsession</li>
-              <li>Noticing certain daily patterns</li>
-              <li>Continuous checking of tiny details</li>
+              <li>Washing hands or cleaning over and over</li>
+              <li>Checking locks, doors, appliances, or homework repeatedly</li>
+              <li>Counting, tapping, repeating words, or arranging items until it feels “right”</li>
+              <li>Constant reassurance seeking (“Are you sure?”)</li>
             </ul>
-            <h4>Some theories regarding causes of OCD include:</h4>
-            <p>Genetics or traits are passed down from parent to child. Biology is like differences in the body's functions. Or by learning obsessive fear from family members over time. Stressful life events, such as a death, can also increase the chance of one getting OCD. OCD may also be caused by other mental health disorders, such as anxiety and depression.</p>
-            <h4>Some effects of OCD include:</h4>
+
+            <h4>How OCD can affect daily life:</h4>
             <ul>
-              <li>Increased anxiety</li>
-              <li>Hard time concentrating on simple tasks</li>
-              <li>Need to do actions that disrupt daily tasks</li>
-              <li>Decreased academic or work performance</li>
-              <li>Emotional exhaustion caused by the constant fighting due to irrational fear</li>
-              <li>Troubled relationship with family</li>
-              <li>Trouble making friends</li>
-              <li>Having a hard time socializing with others in general</li>
-              <li>Overall, these things may cause a lower quality of life and need for suicide</li>
+              <li>Rituals can take a lot of time and make it hard to focus on school or work</li>
+              <li>A person may avoid places or situations that trigger obsessions</li>
+              <li>It can feel exhausting or frustrating — but it’s treatable</li>
             </ul>
-            <p>One fact about OCD is that it usually starts earlier in one's life and tends to vary in severity. Also, as of now, there is no precise way to prevent OCD, but going for regular check-ups with your doctor should be fine.</p>
-          `
-        },
-        depression:{
-          title:"Depression",
-          html:`
-            <img src="images/Depression.png" alt="Depression" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Depression is a mood disorder that results in a constant feeling of unhappiness and loss of interest in doing daily activities.</p>
-            <h4>Some symptoms of Depression include:</h4>
+
+            <h4>Common treatment options:</h4>
             <ul>
-              <li>Constant sensation of sadness or emptiness</li>
-              <li>Quick to anger over little things</li>
-              <li>Insomnia, a disorder that causes difficulty sleeping or constantly sleeping too much (10+ hours of sleep)</li>
-              <li>Easily tired, making even small tasks a pain</li>
-              <li>Reduced appetite and weight loss</li>
-              <li>Reduced thirst and dehydration</li>
-              <li>Anxiety</li>
-              <li>Restlessness</li>
-              <li>Being disinterested in most activities</li>
-              <li>Constant guilt over past failures or incidents</li>
-              <li>Self-blame over small matters</li>
-              <li>Problems regarding thinking and remembering things</li>
-              <li>Recurring thoughts of death and suicidal thoughts</li>
-              <li>Often wanting to stay at home and avoiding going out to socialize with friends and family</li>
-              <li>Constantly indecisive</li>
+              <li><strong>ERP therapy:</strong> Exposure and Response Prevention (a type of CBT) helps reduce compulsions</li>
+              <li><strong>CBT:</strong> Helps challenge scary thoughts and build healthier patterns</li>
+              <li><strong>Medication:</strong> Some SSRIs can reduce symptoms for many people</li>
+              <li><strong>Support:</strong> Education + family support can make treatment easier</li>
             </ul>
-            <h4>Types of Depression:</h4>
-            <p><strong>Major depression, or clinical depression:</strong> A type of depression that lasts 2 weeks or longer</p>
-            <p><strong>Persistent depressive disorder:</strong> A type of depression that is less severe than major depression, but lasts way longer.</p>
-            <p><strong>Postpartum depression:</strong> A type of depression marked by a major depressive episode 2 or 3 months after giving birth</p>
-            <p><strong>SAD or Seasonal Affective Disorder:</strong> A type of depression that mainly occurs during winter months like January, November, or December.</p>
-            <h4>Some ways to go about depression include:</h4>
+          </article>
+        </section>
+
+        <!-- Placeholders -->
+        <section id="detail-depression" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Depression</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/Depression.png" alt="Depression">
+            <p><strong>Depression</strong> is a mental health condition that makes you feel empty, hopeless, or lose interest in things you normally enjoy.</p>
+
+            <h4>Some symptoms of depression include:</h4>
             <ul>
-              <li>Seeing a doctor or mental health professional</li>
-              <li>Seek treatment by talking to a friend or loved one</li>
-              <li>Contact suicide hotlines like 988 Suicide & Crisis Lifeline, available 24/7</li>
-              <li>Use Lifeline Chat, a free and confidential chat room</li>
-              <li>Talk to a religious/spiritual leader</li>
+              <li>Feeling sad or empty most of the day</li>
+              <li>Loss of interest or pleasure in things you enjoy</li>
+              <li>Fatigue or low energy</li>
+              <li>Sleep problems (sleeping too much or too little)</li>
+              <li>Changes in appetite</li>
+              <li>Difficulty concentrating or making decisions</li>
+              <li>Feelings of worthlessness or guilt</li>
+              <li>Restlessness or feeling slowed down</li>
+              <li>Trouble completing daily tasks</li>
+              <li>Avoiding friends or social activities</li>
+              <li>Irritability</li>
+              <li>Thoughts of death or suicide</li>
+              <li>Physical aches or pains with no clear cause</li>
+              <li>Loss of motivation</li>
+              <li>Feeling like a burden to others</li>
             </ul>
-            <p>One fact about depression is that it can affect all ages and can be caused by psychological factors like heartbreak caused by the loss of one's partner or spouse.</p>
-          `
-        },
-        adhd:{
-          title:"Attention-Deficit/Hyperactivity Disorder (ADHD)",
-          html:`
-            <img src="images/adhd.png" alt="ADHD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>ADHD is a neurodevelopmental condition that changes how attention, activity, and impulse control are regulated. Many describe a brain that seeks stimulation: focusing can be hard on tasks that are routine or slow, while hyperfocus can appear on topics of high interest. People with ADHD may forget steps, miss details, interrupt unintentionally, or feel "always on the go," which can be frustrating despite strong intentions and effort. These patterns are real and common in both children and adults.</p>
-            <p>Support starts with understanding. Practical tools (visual schedules, external reminders, breaking work into short sprints, and building consistent routines) lighten the load. Behavioral coaching and therapy can strengthen planning and self-management skills. Medications (stimulant or non-stimulant) are highly studied and, when appropriate, can improve focus and task completion. School and workplace accommodations such as structured deadlines and reduced distractions can turn strengths into dependable performance.</p>
-          `
-        },
-        ptsd:{
-          title:"Post-Traumatic Stress Disorder (PTSD)",
-          html:`
-            <img src="images/ptsd.png" alt="PTSD" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>PTSD, or Post-traumatic stress disorder, is a disorder caused by a traumatic event or experience that affects one's life. For example, PTSD is very common in war veterans due to the traumatic experiences veterans experience in war.</p>
-            <h4>Some symptoms of PTSD include:</h4>
+
+            <h4>Some types of depression include:</h4>
             <ul>
-              <li>Constant reliving of stressful, unwanted memories over and over again</li>
-              <li>Having many flashbacks</li>
-              <li>Constant dreams/nightmares regarding a terrifying event</li>
-              <li>Severe emotional distress or physical reactions caused by the constant flashbacks</li>
+              <li><strong>Major Depressive Disorder (MDD):</strong> Experiencing depression for at least 2 weeks with symptoms that interfere with daily activities</li>
+              <li><strong>Persistent Depressive Disorder (PDD):</strong> Long-lasting depression that lasts for at least 2 years</li>
+              <li><strong>Seasonal Affective Disorder (SAD):</strong> Depression that occurs during certain times of the year, usually when there is less sunlight</li>
+              <li><strong>Postpartum Depression:</strong> Depression that occurs after giving birth, affecting new mothers</li>
             </ul>
-            <p>Due to PTSD's tragic nature, many people try to cope with these strange constant reliving by trying not to think about the event or staying away from places, activities or people that might remind you of the event.</p>
+
+            <h4>Some ways to cope with depression:</h4>
+            <ul>
+              <li>Talk to a mental health professional (therapist, counselor, or psychiatrist)</li>
+              <li>Engage in regular exercise or physical activity, even a 20-minute walk</li>
+              <li>Practice self-care: maintain a routine, eat nutritious food, and get enough sleep</li>
+              <li>Connect with friends, family, or support groups to reduce isolation</li>
+              <li>Consider medication if recommended by a healthcare provider</li>
+            </ul>
+
+            <p><strong>Sources:</strong> National Institute of Mental Health (NIMH), Mayo Clinic, American Psychological Association (APA), Centers for Disease Control and Prevention (CDC), World Health Organization (WHO)</p>
+          </article>
+        </section>
+
+        <section id="detail-adhd" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">ADD and ADHD</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/adhd.png" alt="ADD and ADHD">
+            <p><strong>Attention-Deficit/Hyperactivity Disorder (ADHD)</strong> is a neurodevelopmental disorder that affects a person's ability to pay attention, control impulsive behaviors, and sometimes causes hyperactivity.</p>
+
+            <h4>Some symptoms of ADD/ADHD include:</h4>
+            <ul>
+              <li>Difficulty paying attention or focusing on tasks</li>
+              <li>Easily distracted by sounds, sights, or thoughts</li>
+              <li>Trouble organizing tasks or managing time</li>
+              <li>Procrastination or avoiding tasks that require sustained effort</li>
+              <li>Fidgeting or constant movement</li>
+              <li>Difficulty waiting turns or sitting still</li>
+              <li>Interrupting others frequently</li>
+              <li>Impulsive spending or risky behavior</li>
+              <li>Forgetfulness in daily activities</li>
+              <li>Losing track of important items (keys, phone, homework)</li>
+              <li>Starting tasks but not finishing them</li>
+              <li>Difficulty following instructions</li>
+              <li>Emotional dysregulation (sudden mood swings)</li>
+            </ul>
+
+            <h4>Some effects of ADHD include:</h4>
+            <ul>
+              <li>Struggling in school or work due to focus issues</li>
+              <li>Relationship challenges due to impulsivity or forgetfulness</li>
+              <li>Lower self-esteem from repeated failures or criticism</li>
+              <li>Difficulty managing emotions and stress</li>
+              <li>Higher risk of accidents due to impulsive behavior</li>
+              <li>Sleep problems and restlessness</li>
+            </ul>
+
+            <h4>Common causes of ADHD:</h4>
+            <p>ADHD is primarily caused by genetic factors (it runs in families) and differences in how the brain develops and functions. Prenatal factors like maternal smoking or low birth weight may also increase risk.</p>
+
+            <h4>Some prevention and management strategies:</h4>
+            <ul>
+              <li>Break tasks into smaller, manageable steps</li>
+              <li>Use timers, reminders, and organizational tools</li>
+              <li>Exercise regularly to improve focus and reduce hyperactivity</li>
+              <li>Maintain a consistent sleep schedule</li>
+              <li>Work with a therapist or coach for coping strategies</li>
+              <li>Medication (if recommended by a healthcare provider)</li>
+            </ul>
+
+            <h4>Types of ADHD:</h4>
+            <ul>
+              <li><strong>Predominantly Inattentive Type:</strong> Main symptoms are difficulty focusing and organization</li>
+              <li><strong>Predominantly Hyperactive-Impulsive Type:</strong> Main symptoms are fidgeting, restlessness, and impulsivity</li>
+            </ul>
+          </article>
+        </section>
+
+        <section id="detail-ptsd" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">PTSD</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/ptsd.png" alt="PTSD">
+            <p><strong>Post-Traumatic Stress Disorder (PTSD)</strong> is a mental health condition that develops after experiencing or witnessing a traumatic event. It involves having persistent, distressing memories, avoiding reminders, and heightened stress responses.</p>
+
+            <h4>Common symptoms of PTSD include:</h4>
+            <ul>
+              <li>Intrusive memories or flashbacks of the traumatic event</li>
+              <li>Nightmares related to the trauma</li>
+              <li>Severe emotional distress when reminded of the event</li>
+              <li>Physical reactions to reminders (racing heart, sweating)</li>
+            </ul>
+
             <h4>Some effects of PTSD include:</h4>
             <ul>
-              <li>Suicidal thoughts</li>
-              <li>Constant sense of guilt, shame or blame</li>
-              <li>Negative thoughts about the world, other people, or yourself</li>
-              <li>Being unable to remember important aspects of traumatic events</li>
+              <li>Avoidance of places, people, or situations that trigger memories</li>
+              <li>Negative thoughts about oneself or the world</li>
+              <li>Difficulty remembering important details of the event</li>
+              <li>Persistent blame of self or others</li>
+              <li>Persistent negative emotional state (fear, anger, guilt, shame)</li>
+              <li>Loss of interest in previously enjoyed activities</li>
               <li>Feeling detached from family and friends</li>
-              <li>No sense of emotions</li>
-              <li>No interest in activities you once enjoyed</li>
-              <li>Hard time feeling positive emotions like happiness, excitement, and/or pleasure</li>
-              <li>Easily startled or scared. For example, slamming doors reminding you of gunshots</li>
-              <li>Constantly on guard and trying to spot danger or any suspicious activity</li>
-              <li>Insomnia or other sleep problems</li>
-              <li>Hard time focusing</li>
-              <li>Outbursts of emotions such as anger and aggressive behavior</li>
-              <li>Sweating</li>
-              <li>Fast and uneasy breathing</li>
-              <li>Rapid heartbeat</li>
-              <li>Constant shaking</li>
+              <li>Inability to feel positive emotions</li>
+              <li>Heightened startle response or hypervigilance</li>
+              <li>Reckless or self-destructive behavior</li>
+              <li>Aggressive or violent behavior</li>
+              <li>Difficulty concentrating</li>
+              <li>Sleep disturbances</li>
+              <li>Self-harm or suicidal thoughts</li>
+              <li>Panic attacks</li>
+              <li>Dissociation (feeling disconnected from reality)</li>
+              <li>Substance abuse as coping mechanism</li>
             </ul>
-            <h4>Ways to go about PTSD:</h4>
+
+            <h4>Common causes of PTSD:</h4>
+            <p>PTSD can develop after experiencing combat, serious accidents, physical or sexual assault, witnessing violence, sudden death of a loved one, life-threatening illness, or other traumatic events.</p>
+
+            <h4>Some ways to cope with PTSD:</h4>
             <ul>
-              <li>Contact a doctor</li>
-              <li>Talk to a loved one or friend</li>
-              <li>Talk to a spiritual leader</li>
-              <li>If you have suicidal thoughts, call 988, the suicide and crisis lifeline, which is available 24/7, or text 838255</li>
-              <li>Go to your family therapist</li>
+              <li>Seek professional help from a trauma-informed therapist or counselor</li>
+              <li>Practice grounding techniques to manage flashbacks and dissociation</li>
+              <li>Engage in regular physical activity or yoga</li>
+              <li>Connect with support groups for trauma survivors</li>
+              <li>Maintain a healthy sleep routine and manage stress</li>
             </ul>
-            <p>Getting timely help is important to avoid any stressful reactions from getting worse and possibly leading to suicide. By doing one or more of the ways above to cope with PTSD, you can prevent unhealthy coping methods such as misusing alcohol, drugs, or cigarettes.</p>
-            <p>Common causes of PTSD include close encounters with death, war, serious injury, sexual assault, experiencing childhood abuse, physical assault, and being threatened with a weapon.</p>
-          `
-        },
-        bipolar:{
-          title:"Bipolar Disorder",
-          html:`
-            <img src="images/bipolar.png" alt="Bipolar Disorder" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Bipolar Disorder is a type of depression marked by a varied change in mood from high (maniac) to low (depressed).</p>
-            <h4>Types of Bipolar Disorders include:</h4>
-            <p><strong>Bipolar I:</strong> When the person has at least one maniac episode (a maniac episode is a medical term used to describe an abnormally elevated, overly energetic, or irritable mood that lasts at least one week)</p>
-            <p><strong>Bipolar II:</strong> When the person has had no manic episodes but has had at least one hypomanic episode, a "milder" version of a manic episode, and at least one period of depression.</p>
-            <p><strong>Cyclothymia:</strong> Frequent mood swings between mild depression and hypomania. These symptoms are less severe than major depression.</p>
-            <p>Generally speaking, mania is more severe than hypomania as it causes more noticeable problems at work, school, and other social activities. Also, Mania may cause psychosis or a break from reality, while hypomania can't cause that.</p>
+          </article>
+        </section>
+
+        <section id="detail-bipolar" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Bipolar Disorder</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/bipolar.png" alt="Bipolar Disorder">
+            <p><strong>Bipolar Disorder</strong> is a mental health condition marked by extreme shifts in mood, from very high (manic) states to very low (depressive) states.</p>
+
+            <h4>Some types of bipolar disorder include:</h4>
+            <ul>
+              <li><strong>Bipolar I Disorder:</strong> Characterized by at least one manic episode that lasts at least 7 days (or requires hospitalization)</li>
+              <li><strong>Bipolar II Disorder:</strong> Characterized by depressive episodes and hypomanic episodes (less severe than mania), but not full manic episodes</li>
+              <li><strong>Cyclothymia:</strong> A milder form with numerous periods of hypomanic and depressive symptoms lasting at least 2 years</li>
+            </ul>
+
             <h4>Some symptoms of bipolar disorder include:</h4>
             <ul>
-              <li>Racing thoughts</li>
-              <li>Talking very fast</li>
-              <li>Feeling pressured to keep talking</li>
-              <li>Feeling like ideas are coming nonstop</li>
-              <li>Need much less sleep (2-3) and still feeling full of energy</li>
-              <li>Increased restlessness</li>
-              <li>Doing many risky things like unsafe sex, speeding, and spending a lot of money</li>
-              <li>Feeling depressed</li>
-              <li>Trouble concentrating</li>
-              <li>Difficulty making choices</li>
-              <li>Thinking negatively of yourself</li>
-              <li>Thoughts of suicide</li>
-              <li>Sleeping too much</li>
-              <li>Eating less or more than usual</li>
+              <li>During manic/hypomanic episodes: unusually elevated mood and energy</li>
+              <li>Racing thoughts and rapid speech</li>
+              <li>Decreased need for sleep but feeling rested</li>
+              <li>Grandiose ideas about abilities or importance</li>
+              <li>Increased goal-directed activity</li>
+              <li>Risky behavior (excessive spending, reckless driving, substance use)</li>
+              <li>Distractibility and difficulty focusing</li>
+              <li>During depressive episodes: persistent low mood and loss of interest</li>
+              <li>Fatigue and loss of energy</li>
+              <li>Feelings of worthlessness or guilt</li>
+              <li>Sleep disturbances</li>
+              <li>Difficulty concentrating or making decisions</li>
+              <li>Thoughts of death or suicide</li>
             </ul>
-            <h4>Some causes of Bipolar disorder include:</h4>
-            <p>Genetics, such as having a parent or sibling with Bipolar disorder, and physical changes in their brain (these changes are still uncertain and yet to be fully confirmed). Also can be caused by periods of high stress caused by things like the death of your friends, pets, and/or family, or another traumatic event. Finally, Bipolar disorder can also be caused by severe drug or alcohol misuse.</p>
-            <h4>Prevention against bipolar disorder includes:</h4>
+
+            <h4>Common causes of bipolar disorder:</h4>
+            <p>Bipolar disorder is primarily caused by genetic factors (it runs in families), brain chemistry imbalances (neurotransmitters like serotonin and dopamine), and environmental stressors.</p>
+
+            <h4>Some prevention and management strategies:</h4>
             <ul>
-              <li>Get enough sleep (7-8 hours of sleep daily)</li>
-              <li>Avoid drinking alcohol and consuming drugs that can make symptoms worse</li>
-              <li>Continue treatment and taking medication</li>
+              <li>Medication (mood stabilizers, antipsychotics, or antidepressants as prescribed)</li>
+              <li>Therapy (particularly cognitive-behavioral therapy or family therapy)</li>
+              <li>Maintaining a consistent daily routine and sleep schedule</li>
             </ul>
-          `
-        },
-        eating:{
-          title:"Eating Disorders",
-          html:`
-            <img src="images/eatingdisorders.png" alt="Eating Disorders" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Eating disorders are serious conditions (not choices) that affect health, emotions, and relationships. Thoughts about food, body shape, or weight can become relentless, while behaviors like restriction, binge eating, or purging provide short-term relief but deepen medical and psychological risks. People of every size, gender, age, and background can be affected, and many feel intense shame or secrecy that delays care.</p>
-            <p>Recovery is possible and usually involves a team. Medical monitoring ensures safety; nutrition therapy restores patterns that fuel the body and brain; and evidence-based psychotherapies (such as Family-Based Treatment, CBT, or DBT) address emotions, beliefs, and coping. Treatment may be outpatient or, when health is at risk, a higher level of care. Compassionate support from family and community is a powerful part of rebuilding a healthy relationship with food and with oneself.</p>
-          `
-        },
-        suicide:{
-          title:"Suicide",
-          html:`
-            <img src="images/suicide.png" alt="Suicide" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p><strong>If you or someone you know is struggling or in crisis, help is available now.</strong> Reach local emergency services or a crisis line. Suicidal thoughts often reflect overwhelming pain, isolation, or a belief that things will never improve. These experiences are common and treatable; with connection and care, people do get through.</p>
-            <p>Responding early matters. Professional evaluation can identify treatable conditions like depression, substance use, or trauma responses and create a safety plan that reduces access to lethal means, builds reasons for living, and adds 24/7 contacts. Supportive listening (staying with the person, validating their pain, and helping them reach help) saves lives.</p>
-          `
-        },
-        cooccurring:{
-          title:"Co-occurring Mental Health & Substance Use",
-          html:`
-            <img src="images/cooccurring.png" alt="Co-occurring" style="width:100%;max-width:600px;margin:0 auto 20px;display:block;border-radius:12px;">
-            <p>Mental health conditions and substance use often intersect. Substances may seem to blunt anxiety, lift mood, or aid sleep at first, but over time they tend to worsen symptoms, increase health risks, and make recovery harder. Integrated treatment addresses both at the same time: the same team collaborates on therapy, medications, relapse prevention, and skill-building so progress in one area supports the other.</p>
-            <p>People do recover. Practical steps include safer-use education or abstinence plans, managing withdrawal or cravings with medical care when needed, trauma-informed therapy, peer support, and rebuilding daily routines that keep stress manageable and purpose visible.</p>
-          `
-        },
-        }
-      };
+          </article>
+        </section>
 
-      function showHome(){
-        document.getElementById('mhaDetail').style.display = 'none';
-        document.getElementById('mhaHome').style.display = 'block';
-        try{ history.pushState(null,'', location.pathname); }catch(e){}
-      }
+        <section id="detail-eating" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Eating Disorders</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/eatingdisorders.png" alt="Eating Disorders">
+            <p><strong>Eating Disorders</strong> are serious mental health conditions characterized by abnormal eating behaviors and obsessive thoughts about food, weight, and body image. They can have severe physical and psychological consequences.</p>
 
-      function showPage(key, focus){
-        const data = PAGES[key]; if(!data) return;
-        document.getElementById('mhaHome').style.display = 'none';
-        document.getElementById('mhaDetail').style.display = 'block';
-        document.getElementById('mhaCrumb').textContent = data.title;
-        document.getElementById('mhaDetailTitle').textContent = data.title;
-        document.getElementById('mhaDetailBody').innerHTML = data.html;
-        try{ history.pushState(null,'', '#'+key); }catch(e){ location.hash = key; }
-        if(focus){ document.getElementById('mhaDetailTitle').scrollIntoView({behavior:'smooth', block:'start'}); }
-      }
+            <h4>Common eating disorders include:</h4>
+            <ul>
+              <li><strong>Anorexia Nervosa:</strong> Characterized by severe food restriction, intense fear of weight gain, and distorted body image</li>
+              <li><strong>Bulimia Nervosa:</strong> Involves cycles of binge eating followed by purging (through vomiting, laxatives, or excessive exercise)</li>
+              <li><strong>Binge Eating Disorder:</strong> Recurring episodes of consuming large amounts of food without compensatory behaviors</li>
+            </ul>
 
-      // Router on load / back-forward
-      function route(){
-        const key = (location.hash||'').replace('#','');
-        if(key && PAGES[key]) showPage(key, false);
-        else showHome();
-      }
+            <h4>Warning signs and symptoms:</h4>
+            <ul>
+              <li>Significant weight loss or gain</li>
+              <li>Obsessive focus on food, calories, and weight</li>
+              <li>Social withdrawal and isolation</li>
+              <li>Excessive exercise or food restriction</li>
+              <li>Physical symptoms: fatigue, dizziness, cold intolerance, hair loss</li>
+              <li>Preoccupation with body image</li>
+              <li>Denial of the seriousness of the condition</li>
+            </ul>
 
-      // Initialize when DOM is ready
-      function initializeEventListeners(){
-        // Use event delegation on the grid container
-        const grid = document.querySelector('.mha-grid');
-        if(grid) {
-          grid.addEventListener('click', function(e) {
-            // Check if clicked element or its parent is a .mha-open button
-            const btn = e.target.closest('.mha-open');
-            if(btn) {
-              console.log('Button clicked! data-key:', btn.dataset.key);
-              e.preventDefault();
-              const key = btn.dataset.key;
-              console.log('Redirecting to: course.html#' + key);
-              window.location.href = 'course.html#' + key;
-            }
-          });
-        } else {
-          console.log('mha-grid not found');
-        }
+            <h4>If you or someone you know is struggling with an eating disorder:</h4>
+            <ul>
+              <li>National Eating Disorders Association (NEDA) Helpline: 1-800-931-2237 (call or text)</li>
+              <li>Crisis Text Line: Text "NEDA" to 741741</li>
+              <li>Seek professional help from a therapist, nutritionist, or medical doctor</li>
+              <li>Support groups and family therapy can be beneficial</li>
+            </ul>
 
-        // Back link
-        const backLink = document.getElementById('mhaBack');
-        if(backLink){
-          backLink.addEventListener('click', (e)=>{
-            e.preventDefault(); 
-            showHome();
-          });
-        }
-      }
+            <p><strong>Remember:</strong> Eating disorders are treatable mental health conditions. Recovery is possible with proper support and professional care.</p>
+          </article>
+        </section>
 
-      window.addEventListener('popstate', route);
-      
-      // Check if DOM is already loaded
-      if(document.readyState === 'loading'){
-        document.addEventListener('DOMContentLoaded', ()=>{
-          route();
-          initializeEventListeners();
-        });
-      } else {
-        // DOM is already loaded
-        route();
-        initializeEventListeners();
-      }
-    })();
+        <section id="detail-suicide" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Suicide Prevention</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/suicide.png" alt="Suicide Prevention">
+            <p><strong>Suicidal thoughts or behaviors</strong> are serious warning signs that someone is experiencing overwhelming emotional pain. If you or someone you know is struggling with suicidal thoughts, immediate help is available and recovery is possible.</p>
+
+            <h4>Warning signs that someone may be at risk:</h4>
+            <ul>
+              <li>Talking about wanting to die or having no reason to live</li>
+              <li>Increased substance use or risky behaviors</li>
+              <li>Feeling trapped or hopeless about the future</li>
+              <li>Expressing unbearable emotional pain</li>
+              <li>Withdrawing from family and friends</li>
+              <li>Saying goodbye or giving away possessions</li>
+              <li>Sudden mood changes from depressed to calm or happy</li>
+              <li>Researching methods of suicide</li>
+            </ul>
+
+            <h4>Risk factors include:</h4>
+            <ul>
+              <li>Mental health conditions (depression, bipolar disorder, PTSD)</li>
+              <li>Substance abuse</li>
+              <li>Access to means (firearms, medications)</li>
+              <li>Recent loss or major life stressors</li>
+              <li>Chronic pain or illness</li>
+              <li>Social isolation</li>
+              <li>Feelings of hopelessness or helplessness</li>
+            </ul>
+
+            <h4>How to help someone in crisis:</h4>
+            <ul>
+              <li>Take any mention of suicide seriously</li>
+              <li>Listen without judgment</li>
+              <li>Encourage them to seek professional help</li>
+              <li>Stay with them or ensure they're safe</li>
+              <li>Remove access to means of self-harm when possible</li>
+              <li>Contact emergency services or a suicide prevention hotline</li>
+            </ul>
+
+            <h4>Immediate crisis resources:</h4>
+            <ul>
+              <li><strong>National Suicide Prevention Lifeline:</strong> 1-800-273-8255 (available 24/7)</li>
+              <li><strong>Crisis Text Line:</strong> Text "HELLO" to 741741</li>
+              <li><strong>International Association for Suicide Prevention:</strong> https://www.iasp.info/resources/Crisis_Centres/</li>
+              <li><strong>Emergency Services:</strong> Call 911 or go to the nearest emergency room</li>
+            </ul>
+
+            <p><strong>Remember:</strong> Suicidal thoughts are treatable. With proper support and professional care, people can recover and find hope.</p>
+          </article>
+        </section>
+
+        <section id="detail-cooccurring" class="detail-section" style="display:none">
+          <div class="detail-banner">
+            <button class="back-btn" onclick="backToAll()"><i class="fa fa-angle-left"></i> Back to All</button>
+            <div class="detail-title">Co-occurring Conditions</div>
+          </div>
+          <article class="detail-content">
+            <img class="hero-img" src="images/conditions.png" alt="Co-occurring Conditions">
+            <p><strong>Co-occurring Conditions</strong> (also called comorbidities) occur when a person experiences two or more mental health disorders or physical health conditions at the same time. Many people with one mental health condition also have another.</p>
+
+            <h4>Common co-occurring combinations include:</h4>
+            <ul>
+              <li><strong>Depression and Anxiety:</strong> These often occur together, with anxiety making depression feel more intense</li>
+              <li><strong>PTSD and Substance Abuse:</strong> People with PTSD may use drugs or alcohol to cope with symptoms</li>
+              <li><strong>Bipolar Disorder and ADHD:</strong> Both involve attention and mood regulation, leading to overlapping symptoms</li>
+              <li><strong>Anxiety and Eating Disorders:</strong> Anxiety about body image or control can trigger eating disorder behaviors</li>
+              <li><strong>Depression and Chronic Pain:</strong> Physical pain and emotional pain often reinforce each other</li>
+              <li><strong>Mental Health and Substance Use Disorders:</strong> Often referred to as a dual diagnosis</li>
+            </ul>
+
+            <h4>Why do conditions co-occur?</h4>
+            <ul>
+              <li><strong>Genetic factors:</strong> If your family has mental health conditions, you may be predisposed to multiple disorders</li>
+              <li><strong>Brain chemistry:</strong> Imbalances can affect multiple systems, leading to different symptoms</li>
+              <li><strong>Stress and trauma:</strong> Overwhelming experiences can trigger multiple conditions</li>
+              <li><strong>One condition triggers another:</strong> Untreated anxiety might lead to depression; pain might lead to substance abuse</li>
+              <li><strong>Environmental factors:</strong> Isolation, poverty, or chronic stress can contribute to multiple conditions</li>
+            </ul>
+
+            <h4>Challenges with co-occurring conditions:</h4>
+            <ul>
+              <li>Diagnosis can be harder because symptoms overlap</li>
+              <li>Symptoms may be more severe or last longer</li>
+              <li>Treatment is more complex and requires a coordinated approach</li>
+              <li>Recovery takes longer and requires patience</li>
+              <li>Higher risk of suicide or self-harm</li>
+            </ul>
+
+            <h4>Treatment approaches for co-occurring conditions:</h4>
+            <ul>
+              <li><strong>Integrated treatment:</strong> Working with a team of mental health professionals who understand all your conditions</li>
+              <li><strong>Therapy:</strong> Cognitive-behavioral therapy (CBT) or dialectical behavior therapy (DBT) can address multiple conditions</li>
+              <li><strong>Medication:</strong> Carefully chosen medications that address symptoms of multiple disorders</li>
+              <li><strong>Support groups:</strong> Connect with others managing similar combinations of conditions</li>
+              <li><strong>Lifestyle changes:</strong> Exercise, healthy diet, sleep, and stress management benefit all mental health conditions</li>
+            </ul>
+
+            <h4>Important to know:</h4>
+            <p>Having co-occurring conditions is not a failure—it's a common reality for many people. With proper diagnosis, integrated treatment, and support, people with multiple conditions can recover and live fulfilling lives.</p>
+          </article>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>Built with purpose.</p>
+    <div class="icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin-in"></i>
+    </div>
+    <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+  </section>
+
+  <script src="menu.js"></script>
+
+  <script>
+    function openDisorder(key){
+      // Hide list, show detail
+      document.getElementById('listView').classList.add('hidden');
+      document.getElementById('detailView').classList.add('active');
+
+      // Hide all detail sections
+      const sections = document.querySelectorAll('.detail-section');
+      sections.forEach(s => s.style.display = 'none');
+
+      // Show selected section
+      const target = document.getElementById('detail-' + key);
+      if (target) target.style.display = 'block';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToAll(){
+      document.getElementById('detailView').classList.remove('active');
+      document.getElementById('listView').classList.remove('hidden');
+
+      // Hide any open section to prevent flash
+      const sections = document.querySelectorAll('.detail-section');
+      sections.forEach(s => s.style.display = 'none');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>

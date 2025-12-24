@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCD | You Matter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    :root{
+      --mha-navy:#0d2b57; --mha-ink:#0e1a2b; --mha-bg:#f7fafc; --mha-card:#fff;
+      --mha-cream:#fff6ea; --mha-soft:#e8eff8; --mha-shadow:0 10px 28px rgba(15,40,80,.10);
+      --mha-maxw:980px;
+    }
+    body{background:var(--mha-bg);margin:0}
+    .mha-wrap{max-width:var(--mha-maxw);margin:0 auto;padding:28px 20px}
+    .mha-banner{
+      border-radius:22px;background:var(--mha-cream);padding:18px 20px;margin-bottom:16px;
+      border:1px solid rgba(13,43,87,.06)
+    }
+    .mha-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--mha-navy);text-decoration:none;font-weight:700}
+    .mha-title{font-size:2.1rem;margin:6px 0 0;color:var(--mha-navy);font-weight:800}
+    .mha-content{
+      background:var(--mha-card);border-radius:22px;padding:22px;box-shadow:var(--mha-shadow);
+      border:1px solid rgba(13,43,87,.06)
+    }
+    .mha-content h2,.mha-content h3,.mha-content h4{color:var(--mha-navy);margin:14px 0 8px}
+    .mha-content p{color:var(--mha-ink);line-height:1.9;margin:10px 0}
+    .mha-content ul{margin:10px 0 18px 22px}
+    .mha-content li{margin:6px 0;line-height:1.75}
+    .hero-img{width:100%;max-width:720px;margin:0 auto 18px;display:block;border-radius:14px}
+    .note{
+      background:#f2f6ff;border:1px solid rgba(13,43,87,.10);
+      border-radius:16px;padding:14px 16px;margin:16px 0
+    }
+    .note strong{color:var(--mha-navy)}
+  </style>
+</head>
+
+<body>
+  <!-- Same navigation bar as your site -->
+  <section class="sub-header">
+    <nav>
+      <a href="index.html"><img src="images/logo.png" alt="Site logo"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li class="has-dropdown">
+            <a href="About.html">ABOUT US <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <ul class="dropdown">
+              <li><a href="about-youmatter.html">About You Matter</a></li>
+              <li><a href="about-who-we-are.html">Who We Are</a></li>
+              <li><a href="about-why-we-started.html">Why We Started</a></li>
+              <li><a href="about-what-we-do.html">What We Do</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="course.html">SERVICES <i class="fa-solid fa-angle-down" style="font-size:0.85em;margin-left:6px;"></i></a>
+            <ul class="dropdown">
+              <li><a href="disorders.html" aria-current="page">Disorders</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="check-in.html">Check-in</a></li>
+              <li><a href="gethelp.html">Get Help</a></li>
+            </ul>
+          </li>
+          <li><a href="blog.html">BLOG</a></li>
+          <li><a href="testimonials.html">TESTIMONIALS</a></li>
+          <li><a href="forums.html">FORUMS</a></li>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>OCD</h1>
+  </section>
+
+  <section class="Services">
+    <div class="mha-wrap">
+      <div class="mha-banner">
+        <a class="mha-back" href="disorders.html"><i class="fa fa-angle-left"></i> Back to All</a>
+        <div class="mha-title">Obsessive-Compulsive Disorder (OCD)</div>
+      </div>
+
+      <article class="mha-content">
+        <img class="hero-img" src="images/ocd.png" alt="OCD">
+
+        <p>
+          <strong>Obsessive-Compulsive Disorder (OCD)</strong> is a mental health condition where a person experiences
+          repeated, unwanted thoughts (called <strong>obsessions</strong>) and feels driven to do certain actions or
+          rituals (called <strong>compulsions</strong>) to reduce anxiety or prevent something bad from happening.
+        </p>
+
+        <div class="note">
+          <strong>Important:</strong> People with OCD usually <em>don’t want</em> these thoughts or rituals — they happen
+          because the brain is stuck in a “danger alarm” loop.
+        </div>
+
+        <h4>Obsessions (unwanted thoughts) can look like:</h4>
+        <ul>
+          <li>Fear of germs, contamination, or getting sick</li>
+          <li>Worry that something terrible will happen unless things are “just right”</li>
+          <li>Fear of making a mistake that harms someone</li>
+          <li>Uncomfortable thoughts that repeat even when you try to ignore them</li>
+        </ul>
+
+        <h4>Compulsions (rituals/actions) can look like:</h4>
+        <ul>
+          <li>Washing hands or cleaning over and over</li>
+          <li>Checking locks, doors, appliances, or homework repeatedly</li>
+          <li>Counting, tapping, repeating words, or arranging items until it feels “right”</li>
+          <li>Constantly seeking reassurance (“Are you sure?” “Did I mess up?”)</li>
+        </ul>
+
+        <h4>How OCD affects daily life:</h4>
+        <ul>
+          <li>Rituals can take a lot of time and make it hard to focus on school, work, or relationships</li>
+          <li>A person may avoid places, objects, or situations that trigger obsessions</li>
+          <li>It can feel exhausting, frustrating, or embarrassing — but it’s treatable</li>
+        </ul>
+
+        <h4>Common treatment options:</h4>
+        <ul>
+          <li><strong>Therapy (ERP)</strong>: Exposure and Response Prevention helps a person face triggers safely and resist compulsions</li>
+          <li><strong>CBT</strong>: Cognitive Behavioral Therapy helps challenge scary thoughts and build healthier patterns</li>
+          <li><strong>Medication</strong>: Some antidepressants (like SSRIs) can reduce symptoms for many people</li>
+          <li><strong>Support</strong>: Education, family support, and routines can make treatment easier</li>
+        </ul>
+
+        <p>
+          If you think you might have OCD symptoms, talk to a trusted adult, counselor, doctor, or therapist.
+          Getting help early can make a big difference.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>Built with purpose.</p>
+    <div class="icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin-in"></i>
+    </div>
+    <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+  </section>
+
+  <script src="menu.js"></script>
+</body>
+</html>
