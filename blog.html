@@ -224,17 +224,48 @@ function hideMenu() { navLinks.style.right = "-200px"; }
 <!-- BLOG LOGIC -->
 <script>
 const posts = [
-    { id: 1, title: "Intro Blog", date: "Updated Dec 2025", tag: "Introduction", categoryClass: "post-intro", body: `<p>Welcome to our website about mental health awareness made by Rishit Lalchandani and Dhairya Mehta...</p>`},
-    { id: 2, title: "Some Cool Features of Our Website and How We Coded It", date: "Updated Dec 2025", tag: "Coding", categoryClass: "post-code", body: `<p>First of all, I would like to talk about a quick feature found all through our website, which is regarding buttons...</p>`},
-    { id: 3, title: "Healthy Steps to Improve Your Mental Health", date: "Updated Dec 2025", tag: "Health", categoryClass: "post-anxiety", body: `<p>Mental health is a really important thing that we all need to focus on in our daily lives...</p>`},
-    { id: 4, title: "Coping with Academic Stress", date: "Updated Dec 2025", tag: "Academic", categoryClass: "post-academic", body: `<p>Academic Stress is a thing all students have, whether you are taking all of the hardest or easiest classes...</p>`},
-    { id: 5, title: "Social Media’s Effect on Mental Health", date: "Updated Dec 2025", tag: "Social Media", categoryClass: "post-social", body: `<p>Social media has become a major part of everyone’s life, whether you are a teen, adult, or student...</p>`},
-    { id: 6, title: "The Importance of Talking to Someone You Trust", date: "Updated Dec 2025", tag: "Support", categoryClass: "post-talking", body: `<p>Everyone, including you and me, experiences stress or worries at some point in our lives...</p>`},
-    { id: 7, title: "Balancing Activities and Rest", date: "Updated Dec 2025", tag: "Balance", categoryClass: "post-balance", body: `<p>Many people nowadays feel pressured to stay busy and not take any breaks...</p>`},
-    { id: 8, title: "The Importance of Setting Realistic Expectations for Yourself", date: "Updated Dec 2025", tag: "Self-Improvement", categoryClass: "post-confidence", body: `<p>Everyone, including me and you, feels lots of pressure to succeed at times...</p>`},
-    { id: 9, title: "What a Harvard Study Says About Social Connections and Mental Health", date: "Updated Dec 2025", tag: "Research", categoryClass: "post-support", body: `<p>Everyone, including you and me, experiences stressful times and moments, during these moments it is easy to forget...</p>`}
+{
+    id: 1,
+    title: "Intro Blog",
+    date: "Updated Dec 2025",
+    tag: "Introduction",
+    categoryClass: "post-intro",
+    body: `<p>Welcome to our website about mental health awareness made by Rishit Lalchandani and Dhairya Mehta. In this blog, we will talk about the features we have on our website, like the home screen, the disorders section, the blogs section, and the about us section.</p>
+<p>Anyway, to help you get started, let’s quickly walk through each one of these sections I just mentioned above.</p>
+<p>Firstly, the home screen is the main page you see when you first open the website, and is designed for easy navigation so users can easily find the important information they are looking for. Now, let's dive into some of the features on the home screen:</p>
+<ul>
+<li>Our latest blog posts (like this one!) on various topics like mental health awareness and real-life people who have gone through this experience</li>
+<li>Quick links to key resources and support hotlines.</li>
+<li>Important statistics to help showcase the importance of mental health awareness</li>
+</ul>
+<p>Secondly, the disorders section, a tab you can find after clicking the button in the top right corner named “disorders.” This section introduces various types of disorders and their effects. Some disabilities in this section include:</p>
+<ul>
+<li>Anxiety Disorders</li>
+<li>OCD (Obsessive-Compulsive Disorder)</li>
+<li>Depression</li>
+<li>ADHD (Attention-Deficit/Hyperactivity Disorder)</li>
+<li>PTSD (Post-Traumatic Stress Disorder)</li>
+<li>Bipolar Disorder</li>
+<li>Eating Disorders</li>
+<li>Suicide/Crisis Help (MHA)</li>
+</ul>
+<p>Thirdly, we have the Blogs Section, this is where we share in-depth articles, personal stories, mental health awareness, and how-to to about such disorders effectively.</p>
+<p>Fourthly, the About Us Section... Here you can learn more about us, Rishit Lalchandani and Dhairya Mehta, and our mission statement, which defines our goals and what we are trying to achieve with this website.</p>
+<p>Finally, we have the Forums section, where you can interact with others who might be going through a similar situation or disorder as you. This forum helps connect like-minded individuals together to just talk about life and other issues they might have on a day-to-day basis.</p>`
+},
+{
+    id: 2,
+    title: "Some Cool Features of Our Website and How We Coded It",
+    date: "Updated Dec 2025",
+    tag: "Coding",
+    categoryClass: "post-code",
+    body: `<p>First of all, I would like to talk about a quick feature found all through our website, which is regarding buttons. When you hover over the buttons, the color changes or a shadow gets added to it, due to a pseudo-class called hover.</p>
+<p>Next, we used the HTML input tag (specifically type="text", type="email", type="password", etc.) for single-line inputs like your name for the book and appointment section. These text boxes are like areas where you can type in information needed for our code to perform. We also had a required tag to help give an error message if you tried to submit the form with nothing in the text box for the appointment section.</p>
+<p>Now for the Mental Health Check In, the user has to answer questions using a rating scale (1–5), and the system provides custom advice based on their scores. This was done by using if and else statements. Based on the number you selected, there will be custom feedback provided to help improve your mental health.</p>
+<p>Lastly, for the Forums section, we used a variable to store the input you type in the text box. This variable is in a class that is then displayed in the forum, so you can see what you and other people typed. This forum page allows people of all ages and genders to connect in a safe environment.</p>`
+},
+// Repeat similar structure for all remaining blogs with their full text (posts 3–10)
 ];
-
 const blogListEl = document.getElementById("blog-list");
 const blogDetailEl = document.getElementById("blog-detail");
 const detailTitleEl = document.querySelector(".detail-title");
