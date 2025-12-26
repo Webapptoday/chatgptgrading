@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post | YouMatter Forums</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    :root {
+      --ink: #0b1220;
+      --muted: #475569;
+      --muted2: #64748b;
+      --border: #e5e7eb;
+      --card: #ffffff;
+      --shell: #f8fafc;
+      --brand: #0d2b57;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      --shadow2: 0 6px 16px rgba(2, 6, 23, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--shell);
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .content-section {
+      width: 100%;
+      background: #ffffff;
+      padding: 46px 20px 80px;
+    }
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--ink);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand);
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: transform 0.2s ease;
+    }
+    .back-link:hover {
+      transform: translateX(-4px);
+    }
+
+    .post-header {
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    .post-header h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: var(--ink);
+    }
+    .post-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .post-meta .category {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #eef2ff;
+      border-radius: 6px;
+      color: var(--brand);
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .post-body {
+      line-height: 1.8;
+      color: var(--ink);
+      font-size: 1rem;
+      margin-bottom: 32px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+    .btn-primary {
+      background: var(--brand);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0a1f42;
+      transform: translateY(-2px);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+    }
+    .error {
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .content-section {
+        padding: 32px 16px 60px;
+      }
+      .post-header h1 {
+        font-size: 1.6rem;
+      }
+      .post-meta {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <section class="sub-header">
+    <nav>
+      <a href="index.html"><img src="images/logo.png" alt=""></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="forums.html">FORUMS</a></li>
+          <li><a href="course.html">COURSE</a></li>
+          <li><a href="blog.html">BLOG</a></li>
+          <li><a href="about-youmatter.html">ABOUT</a></li>
+          <li><a href="appointment.html">APPOINTMENT</a></li>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+  </section>
+
+  <section class="content-section">
+    <div class="content-container">
+
+      <a href="forums.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Forums
+      </a>
+
+      <div id="post"></div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>Built with purpose.</p>
+    <div class="icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin-in"></i>
+    </div>
+    <p>MADE WITH <i class="fa-regular fa-heart"></i> BY THE YOU MATTER TEAM</p>
+  </section>
+
+  <script src="menu.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDWRLEiEmgcG7cvShqSvuePlx8Jw-s2MTg",
+      authDomain: "youmatter-46c43.firebaseapp.com",
+      projectId: "youmatter-46c43",
+      storageBucket: "youmatter-46c43.firebasestorage.app",
+      messagingSenderId: "971089399934",
+      appId: "1:971089399934:web:2d8e0a2988b1938f46082f"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+
+    const postDiv = document.getElementById("post");
+
+    async function loadPost() {
+      if (!id) {
+        postDiv.innerHTML = '<div class="error">Missing post ID.</div>';
+        return;
+      }
+
+      try {
+        const snap = await getDoc(doc(db, "forum_posts", id));
+
+        if (!snap.exists()) {
+          postDiv.innerHTML = '<div class="error">Post not found.</div>';
+        } else {
+          const p = snap.data();
+          const title = p.title ?? "Untitled";
+          const category = p.category ?? "";
+          const body = p.body ?? "(No content)";
+
+          postDiv.innerHTML = `
+            <div class="post-header">
+              <h1>${title}</h1>
+              <div class="post-meta">
+                ${category ? `<span class="category">${category}</span>` : ""}
+                <span>Posted on YouMatter</span>
+              </div>
+            </div>
+
+            <div class="post-body">${body}</div>
+
+            <div class="post-actions">
+              <button class="btn btn-primary" onclick="location.href='new-post.html'">
+                <i class="fa-solid fa-reply"></i> Reply (coming soon)
+              </button>
+            </div>
+          `;
+        }
+      } catch (err) {
+        console.error("Error loading post:", err);
+        postDiv.innerHTML = '<div class="error">Error loading post. Please try again.</div>';
+      }
+    }
+
+    loadPost();
+  </script>
+
+</body>
+</html>

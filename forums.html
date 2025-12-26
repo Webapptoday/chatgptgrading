@@ -950,7 +950,8 @@
     getFirestore,
     collection,
     query,
-    getDocs
+    getDocs,
+    orderBy
   } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
   const firebaseConfig = {
@@ -969,11 +970,14 @@
     const forumPostsDiv = document.getElementById("forum-posts");
     forumPostsDiv.innerHTML = "<!-- Firestore posts load here -->";
 
-    const q = query(collection(db, "forum_posts"));
+    const q = query(
+      collection(db, "forum_posts"),
+      orderBy("createdAt", "desc")
+    );
     const snapshot = await getDocs(q);
 
-    snapshot.forEach((doc) => {
-      const p = doc.data();
+    snapshot.forEach((docSnap) => {
+      const p = docSnap.data();
 
       // Basic fallback values so it never breaks
       const title = p.title ?? "Untitled";
@@ -989,7 +993,7 @@
         <div class="topic-main">
           <div class="topic-ico"><i class="fa-regular fa-comments"></i></div>
           <div class="topic-text">
-            <h2>${title}</h2>
+            <h2><a href="post.html?id=${docSnap.id}">${title}</a></h2>
             <p>${description}</p>
             <div class="tags">
               ${category ? `<span class="tag soft">${category}</span>` : ""}
@@ -1008,7 +1012,7 @@
           </div>
         </div>
 
-        <a class="latest-link">
+        <a class="latest-link" href="post.html?id=${docSnap.id}">
           <div class="latest">
             <div class="avatar">${title.charAt(0)}</div>
             <div class="latest-text">
