@@ -254,16 +254,62 @@
     </section>
 
     <script src="menu.js"></script>
-    <script>
-        // simple client-side "post" logic: user sees their own messages
-        const postBtn = document.getElementById('post-btn');
-        const postText = document.getElementById('post-text');
-        const messages = document.getElementById('messages');
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        query,
+        orderBy,
+        onSnapshot,
+        serverTimestamp
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-        function addMessage(text) {
-            // remove empty state if present
-            const empty = messages.querySelector('.message-empty');
-            if (empty) empty.remove();
+      const firebaseConfig = {
+        apiKey: "AIzaSyDWRLEiEmgcG7cvShqSvuePlx8Jw-s2MTg",
+        authDomain: "youmatter-46c43.firebaseapp.com",
+        projectId: "youmatter-46c43",
+        storageBucket: "youmatter-46c43.firebasestorage.app",
+        messagingSenderId: "971089399934",
+        appId: "1:971089399934:web:2d8e0a2988b1938f46082f"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const THREAD_ID = "introduce_yourself";
+
+      const postBtn = document.getElementById('post-btn');
+      const postText = document.getElementById('post-text');
+      const messagesDiv = document.getElementById('messages');
+
+      // A) Save message to Firestore
+      async function postMessage(text) {
+        await addDoc(collection(db, "threads", THREAD_ID, "messages"), {
+          text,
+          createdAt: serverTimestamp()
+        });
+      }
+
+      // B) Load messages from Firestore and keep them in sync with onSnapshot
+      function listenForMessages() {
+        const q = query(
+          collection(db, "threads", THREAD_ID, "messages"),
+          orderBy("createdAt", "asc")
+        );
+
+        onSnapshot(q, (snap) => {
+          messagesDiv.innerHTML = "";
+
+          if (snap.empty) {
+            messagesDiv.innerHTML = '<p class="message-empty">No messages yet. Your introduction will appear here after you post.</p>';
+            return;
+          }
+
+          snap.forEach((docSnap) => {
+            const m = docSnap.data();
+            const text = m.text ?? "";
 
             const wrapper = document.createElement('div');
             wrapper.className = 'message-card';
@@ -277,8 +323,14 @@
 
             const meta = document.createElement('div');
             meta.className = 'message-meta';
-            const now = new Date();
-            meta.textContent = `You · ${now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}`;
+            
+            // Format timestamp if available
+            let timeStr = "Just now";
+            if (m.createdAt) {
+              const timestamp = m.createdAt.toDate ? m.createdAt.toDate() : new Date(m.createdAt);
+              timeStr = timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+            }
+            meta.textContent = `You · ${timeStr}`;
 
             const msgText = document.createElement('div');
             msgText.className = 'message-text';
@@ -290,16 +342,28 @@
             wrapper.appendChild(avatar);
             wrapper.appendChild(body);
 
-            messages.appendChild(wrapper);
-        }
-
-        postBtn.addEventListener('click', () => {
-            const val = postText.value.trim();
-            if (!val) return;
-            addMessage(val);
-            postText.value = '';
-            postText.focus();
+            messagesDiv.appendChild(wrapper);
+          });
         });
+      }
+
+      // C) Wire it up
+      postBtn.addEventListener('click', async () => {
+        const val = postText.value.trim();
+        if (!val) return;
+        
+        try {
+          await postMessage(val);
+          postText.value = ''; // Clear textbox only after successful save
+          postText.focus();
+        } catch (err) {
+          console.error("Error posting message:", err);
+          alert("Could not post message. Please try again.");
+        }
+      });
+
+      // Load messages on page load
+      listenForMessages();
     </script>
 </body>
 </html>
